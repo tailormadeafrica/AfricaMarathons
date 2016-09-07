@@ -1,0 +1,258 @@
+<div id='records'>
+  <h2><%= t('.booking') %></h2>
+  <table id='booking' class='inquiry'>
+      <tr>
+        <td>
+          <strong>
+            <%= t('.full_name', :default => t('activerecord.attributes.booking.full_name')) %>
+          </strong>
+        </td>
+        <td>
+          <%= @booking.full_name %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>
+            <%= t('.email', :default => t('activerecord.attributes.booking.email')) %>
+          </strong>
+        </td>
+        <td>
+          <%= @booking.email %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>
+            <%= t('.telephone', :default => t('activerecord.attributes.booking.telephone')) %>
+          </strong>
+        </td>
+        <td>
+          <%= @booking.telephone %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>
+            <%= t('.cellphone', :default => t('activerecord.attributes.booking.cellphone')) %>
+          </strong>
+        </td>
+        <td>
+          <%= @booking.cellphone %>
+        </td>
+      </tr>
+      <tr>
+        <td valign='top'>
+          <strong>
+            <%= t('.address', :default => t('activerecord.attributes.booking.address')) %>
+          </strong>
+        </td>
+        <td>
+          <p style='margin-top: 0px'>
+            <% @booking.message.to_s.gsub("\r\n\r\n", "\r\n").split("\r\n").each_with_index do |sentence, index| %>
+              <%=raw "</p><p>" unless index == 0 %>
+              <%= sentence %>
+            <% end %>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>
+            <%= t('.dont_get_newsletters', :default => t('activerecord.attributes.booking.dont_get_newsletters')) %>
+          </strong>
+        </td>
+        <td>
+          <%= @booking.dont_get_newsletters %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>
+            <%= t('.insurance_company', :default => t('activerecord.attributes.booking.insurance_company')) %>
+          </strong>
+        </td>
+        <td>
+          <%= @booking.insurance_company %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>
+            <%= t('.policy_number', :default => t('activerecord.attributes.booking.policy_number')) %>
+          </strong>
+        </td>
+        <td>
+          <%= @booking.policy_number %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>
+            <%= t('.emergency_number', :default => t('activerecord.attributes.booking.emergency_number')) %>
+          </strong>
+        </td>
+        <td>
+          <%= @booking.emergency_number %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>
+            <%= t('.certify_personal_insurance', :default => t('activerecord.attributes.booking.certify_personal_insurance')) %>
+          </strong>
+        </td>
+        <td>
+          <%= @booking.certify_personal_insurance %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>
+            <%= t('.honeymoon', :default => t('activerecord.attributes.booking.honeymoon')) %>
+          </strong>
+        </td>
+        <td>
+          <%= @booking.honeymoon %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>
+            <%= t('.birthday', :default => t('activerecord.attributes.booking.birthday')) %>
+          </strong>
+        </td>
+        <td>
+          <%= @booking.birthday %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>
+            <%= t('.anniversary', :default => t('activerecord.attributes.booking.anniversary')) %>
+          </strong>
+        </td>
+        <td>
+          <%= @booking.anniversary %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>
+            <%= t('.birthday_who_and_when', :default => t('activerecord.attributes.booking.birthday_who_and_when')) %>
+          </strong>
+        </td>
+        <td>
+          <%= @booking.birthday_who_and_when %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>
+            <%= t('.anniversary_who_and_where', :default => t('activerecord.attributes.booking.anniversary_who_and_where')) %>
+          </strong>
+        </td>
+        <td>
+          <%= @booking.anniversary_who_and_where %>
+        </td>
+      </tr>
+      <tr>
+        <td valign='top'>
+          <strong>
+            <%= t('.emergency_contacts', :default => t('activerecord.attributes.booking.emergency_contacts')) %>
+          </strong>
+        </td>
+        <td>
+          <p style='margin-top: 0px'>
+            <% @booking.message.to_s.gsub("\r\n\r\n", "\r\n").split("\r\n").each_with_index do |sentence, index| %>
+              <%=raw "</p><p>" unless index == 0 %>
+              <%= sentence %>
+            <% end %>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>
+            <%= t('.i_accept', :default => t('activerecord.attributes.booking.i_accept')) %>
+          </strong>
+        </td>
+        <td>
+          <%= @booking.i_accept %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>
+            <%= t('.i_accept_name', :default => t('activerecord.attributes.booking.i_accept_name')) %>
+          </strong>
+        </td>
+        <td>
+          <%= @booking.i_accept_name %>
+        </td>
+      </tr>
+
+    <tr>
+      <td>
+        <strong style="font-size: 16px;">
+          Passports
+        </strong>
+      </td>
+    </tr>
+    <% @booking.passports.each do |passport| %>
+      <tr>
+        <td>
+          Title: <%= passport.title %>
+          First Name: <%= passport.first_name %>
+          Surname: <%= passport.surname %>
+          D.o.Birth: <%= passport.date_of_birth %>
+          Passport Number: <%= passport.passport_no %>
+          Issue Date: <%= passport.issue_date %>
+          Expiry Date: <%= passport.expiry_date %>
+          Place of Issue: <%= passport.place_of_issue %>
+          Weight(kgs): <%= passport.weight %>
+          Diet Req: <%= passport.diet_req %>
+        </td>
+      </tr>
+    <% end %>
+    <tr>
+      <td>
+        <strong style="font-size: 16px;">
+          Flights
+        </strong>
+      </td>
+    </tr>
+    <% @booking.flights.each do |flight| %>
+      <tr>
+        <td>
+          Airline & Flight Number: <%= flight.airline_and_flight_no %>
+          Departure Airport: <%= flight.departure_airport %>
+          Depart Time: <%= flight.departure %>
+          Arrival Airport: <%= flight.arrival_airport %>
+          Arrive Time: <%= flight.arrival %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<div id='actions'>
+  <h2><%= t('.details')%></h2>
+  <p>
+    <strong><%= t('.age') %>:</strong> <%= time_ago_in_words(@booking.created_at) %>
+  </p>
+  <h2><%= t('.actions') %></h2>
+  <ul>
+    <li>
+      <%= link_to t('.back_to_all_bookings'), refinery.url_for(:action => 'index'),
+                   :class => "back_icon" %>
+    </li>
+    <li>
+      <%= link_to t('delete', :scope => 'refinery.bookings.admin.bookings'),
+                  refinery.bookings_admin_booking_path(@booking),
+                  :class => 'delete_icon no-tooltip confirm-delete',
+                  :title => t('delete', :scope => 'refinery.bookings.admin.bookings'),
+                  :'data-confirm' => t('message', :scope => 'refinery.admin.delete', :title => @booking.name),
+                  :'data-method' => "delete" %>
+    </li>
+  </ul>
+</div>

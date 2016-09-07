@@ -1,0 +1,30 @@
+en:
+  refinery:
+    plugins:
+      activities:
+        title: Activities
+    activities:
+      admin:
+        activities:
+          actions:
+            create_new: Add New Activity
+            reorder: Reorder Activities
+            reorder_done: Done Reordering Activities
+          records:
+            title: Activities
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Activities yet. Click "Add New Activity" to add your first activity.
+          activity:
+            view_live_html: View this activity live <br/><em>(opens in a new window)</em>
+            edit: Edit this activity
+            delete: Remove this activity forever
+      activities:
+        show:
+          other: Other Activities
+  activerecord:
+    attributes:
+      'refinery/activities/activity':
+        name: Name
+        cover_image: Cover Image
+        description: Description
+        rating: Rating

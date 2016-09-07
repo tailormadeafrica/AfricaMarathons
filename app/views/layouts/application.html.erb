@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<%= render '/refinery/html_tag' %>
+  <% site_bar = render('/refinery/site_bar', :head => true) -%>
+  <%= render '/refinery/head' %>
+  <body id="container">
+    <%= site_bar -%>
+    <%= render '/refinery/ie6check' if request.env['HTTP_USER_AGENT'] =~ /MSIE/ -%>
+
+    <%= render '/refinery/header' -%>
+
+    <%= render '/shared/banner' %>
+
+    <div id="welcome">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 div1">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div id="countries">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="content-container">
+            <div class="content">
+              <h1><%= copywriting('Countries Title', {:phrase_type => 'string', :scope => 'Footer', :default => 'In depth knowledge of 16 countries' }) %></h1>
+              <p><%= copywriting('Countries Text', {:phrase_type => 'text', :scope => 'Footer', :default => 'Over many years of experience in our industry the founders and directors of Tailormade Africa have built up a detailed, in depth knowledge of 16 countries on the African continent. Not only do we offer the better known destinations in Africa but we actively promote and support the countries where the tourism infrastructure is not as advanced or, dare we say, compromised by over-commercialization. Including some of these less well-known regions in your Tailormade Africa itinerary is highly rewarding. As well as recapturing that sense of exploration you will be making a positive and long lasting impact on the development of local tourism, conservation and job creation.' }) %></p>
+              <% @menu_locations = Refinery::Locations::Location.where('parent_id IS null') %>
+              <% if @menu_locations.present? %>
+                <ul class="footer_location_nav">
+                  <% @menu_locations.each do |location| %>
+                    <li>
+                      <%= link_to refinery.locations_location_path(location) do %>
+                        <%= image_fu location.flag_image, '35x35#c', :class=>"img-circle" %><br>
+                        <span><%= location.name %></span>
+                      <% end %>
+                    </li>
+                  <% end %>
+                </ul>
+              <% end %>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <%= render '/refinery/footer' -%>
+
+    <%= render '/refinery/javascripts' %>
+  </body>
+</html>

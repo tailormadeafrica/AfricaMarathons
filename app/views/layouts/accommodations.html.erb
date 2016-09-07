@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<%= render '/refinery/html_tag' %>
+  <% site_bar = render('/refinery/site_bar', :head => true) -%>
+  <%= render '/refinery/head' %>
+  <body id="container">
+    <%= site_bar -%>
+    <%= render '/refinery/ie6check' if request.env['HTTP_USER_AGENT'] =~ /MSIE/ -%>
+
+    <%= render '/refinery/header' -%>
+
+    <%= render '/shared/banner' %>
+
+    
+      <div id="welcome">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 div1">
+              <p>
+                <%=raw @accommodation.description %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% activities = Refinery::Activities::Activity.all %>
+      <% if activities.present? %>
+        <div class="activities">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12">
+                <h1>Popular Experiences</h1>
+                <div id="activities_slider">
+                  <% activities.each do |activity| %>
+                    <div class="slide">
+                      <%= link_to refinery.activities_activity_path(activity)  do %>                        
+                        <%= image_fu activity.cover_image, "300x175#c" if activity.cover_image.present? %> 
+                        <%= activity.name %>
+                      <% end %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    
+
+    <%= render '/refinery/footer' -%>
+
+    <%= render '/refinery/javascripts' %>
+  </body>
+</html>

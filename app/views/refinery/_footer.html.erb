@@ -1,0 +1,71 @@
+
+<div id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="">
+          <h1><%= copywriting('Contact title', {:phrase_type => 'string', :scope => 'Footer', :default => 'Let us tailor make your next journey' }) %></h1>
+          <p><%= copywriting('Contact Text', {:phrase_type => 'text', :scope => 'Footer', :default => 'Whether you are a seasoned Africa traveller or going to Africa for the very first time, we would love to speak to you. Our first aim is to get to know you, what interests you have and to then match these with our tailormade collection of experiences, camps and lodges. It is always best to talk this over and get the ball rolling from there, so please do pick up the phone for an informal chat with us. We look forward to speaking with you and tailor making your next journey.' }) %></p>
+        </div>
+        <div class="contact-form">
+          <h2>Fill in the form below and we'll get back to you asap</h2>
+          
+          <% @inquiry ||= ::Refinery::Inquiries::Inquiry.new %>
+          <%= simple_form_for [refinery, :inquiries, @inquiry], :html => {:class => 'form-vertical'} do |f| %>
+            <div class="row"><div class="col-xs-12 col-sm-6">
+              <%= f.input :name, :wrapper => :bootstrap_12, :input_html => { :class => 'form-control' } %>
+              <%= f.input :email, :wrapper => :bootstrap_12, :input_html => { :class => 'form-control' }%>
+              <%= f.input :phone, :wrapper => :bootstrap_12, :input_html => { :class => 'form-control' } %>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <%= f.input :message, :wrapper => :bootstrap_12,:input_html  => {:rows=>6, :class => 'form-control' } %>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <img src="/assets/captcha.png" class="img-responsive captcha">
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <%= f.input :captcha, :wrapper => :bootstrap_12, :input_html => { :class => 'form-control' } %>
+            </div>
+            <div class="col-xs-12">
+              <%= f.submit 'Submit', :class=>"btn btn-default btn-custom", :data => {:disable_with => "Saving..."} %>
+            </div></div>
+          <% end %>
+            
+          <div class="contact-details">
+            <% email = copywriting('Email', {:phrase_type => 'string', :scope => 'Footer', :default => 'info@tailormadeafrica.com' }) %>
+            <a href="mailto:<%= email %>"><i class="fa fa-envelope fa-2x"></i><h3><%= email %></h3></a>
+            <i class="fa fa-phone fa-3x"></i><h3><%= copywriting('Phone Number 1', {:phrase_type => 'string', :scope => 'Footer', :default => '+44 7809 726266  (Clyde)' }) %><br/><%= copywriting('Phone Number 2', {:phrase_type => 'string', :scope => 'Footer', :default => '+44 7791 360170 (Rob)' }) %></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="content-container">
+          <div class="content">
+            <a href="#welcome"><i class="fa fa-chevron-up fa-3x"></i></a>
+            <a href="/"><img src="/assets/bottom-logo.png" class="logo img-responsive"></a>
+            <span>&copy; 2015 Tailormade Africa &bull; All Rights Reserved &bull; <a href="http://www.perfectcircle.co.za" target="_blank">Web by Perfect Circle</a>.</span><br/>
+            <span><a href="/terms-conditions">Terms & Conditions</a> &bull; </span><a href="/bookings/new">Booking form</a>
+            <a href="/"><img src="/assets/logos.png" class="logos img-responsive"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+

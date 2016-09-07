@@ -1,0 +1,25 @@
+<ul>
+  <% if ::Refinery::Amenities::Admin::AmenitiesController.searchable? %>
+    <li>
+      <%= render '/refinery/admin/search', :url => refinery.amenities_admin_amenities_path %>
+    </li>
+  <% end %>
+  <li>
+    <%= link_to t('.create_new'), refinery.new_amenities_admin_amenity_path,
+                 :class => "add_icon" %>
+  </li>
+<% if !searching? && ::Refinery::Amenities::Admin::AmenitiesController.sortable? && ::Refinery::Amenities::Amenity.any? %>
+  <li>
+    <%= link_to t('.reorder', :what => "Amenities"),
+                 refinery.amenities_admin_amenities_path,
+                 :id => "reorder_action",
+                 :class => "reorder_icon" %>
+
+    <%= link_to t('.reorder_done', :what => "Amenities"),
+                 refinery.amenities_admin_amenities_path,
+                 :id => "reorder_action_done",
+                 :style => "display: none;",
+                 :class => "reorder_icon" %>
+  </li>
+<% end %>
+</ul>

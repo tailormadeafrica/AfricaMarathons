@@ -1,0 +1,24 @@
+<div class="telephone-number hidden-xs">
+  <h2><i class="fa fa-phone fa-3x"></i> + 44 7809 726266</h2>
+</div>
+<div class="navbar-hamburger">
+  <div class="bar1"></div>
+  <div class="bar2"></div>
+  <div class="bar3"></div>
+  <span>MENU</span>
+</div>
+
+<nav class="nav-hide">
+  <ul>
+    <img src="/assets/logo-small.png" >
+    <%= render :partial => "/refinery/menu" %>
+	<div id="sb-search" class="sb-search">
+		<form accept-charset="UTF-8" action="/locations" method="get">
+			<input class="sb-search-input" placeholder="Search..." type="text" value="" name="search" id="search">
+			<input class="sb-search-submit" type="submit" value="">
+			<span class="sb-icon-search"></span>
+		</form>
+	</div>
+  </ul>
+</nav>
+

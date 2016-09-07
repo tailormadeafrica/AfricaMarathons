@@ -1,0 +1,28 @@
+nl:
+  refinery:
+    plugins:
+      amenities:
+        title: Amenities
+    amenities:
+      admin:
+        amenities:
+          actions:
+            create_new: Maak een nieuwe Amenity
+            reorder: Wijzig de volgorde van de Amenities
+            reorder_done: Klaar met het wijzingen van de volgorde van de Amenities
+          records:
+            title: Amenities
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Amenities. Druk op 'Maak een nieuwe Amenity' om de eerste aan te maken.
+          amenity:
+            view_live_html: Bekijk deze amenity op de website <br/><em>(opent een nieuw venster)</em>
+            edit: Bewerk deze amenity
+            delete: Verwijder deze amenity voor eeuwig
+      amenities:
+        show:
+          other: Andere Amenities
+  activerecord:
+    attributes:
+      'refinery/amenities/amenity':
+        name: Name
+        image: Image

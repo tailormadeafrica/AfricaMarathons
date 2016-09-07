@@ -1,0 +1,45 @@
+<% content_for :body_content_title do %>
+  <%= @accommodation.name %>
+<% end %>
+
+<% content_for :body_content_left do %>
+  <section>
+    <h1>Name</h1>
+    <p>
+      <%=raw @accommodation.name %>
+    </p>
+  </section>
+  <section>
+    <h1>Cover Image</h1>
+    <p>
+      <%= image_fu @accommodation.cover_image, nil %>
+    </p>
+  </section>
+  <section>
+    <h1>Rating</h1>
+    <p>
+      <%=raw @accommodation.rating %>
+    </p>
+  </section>
+  <section>
+    <h1>Description</h1>
+    <p>
+      <%=raw @accommodation.description %>
+    </p>
+  </section>
+<% end %>
+
+<% content_for :body_content_right do %>
+  <aside>
+    <h2><%= t('.other') %></h2>
+    <ul id="accommodations">
+      <% @accommodations.each do |accommodation| %>
+        <li>
+          <%= link_to accommodation.name, refinery.accommodations_accommodation_path(accommodation) %>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+<% end %>
+
+<%= render '/refinery/content_page' %>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<%= render '/refinery/html_tag' %>
+  <% site_bar = render('/refinery/site_bar', :head => true) -%>
+  <%= render '/refinery/head' %>
+  <body id="container">
+    <%= site_bar -%>
+    <%= render '/refinery/ie6check' if request.env['HTTP_USER_AGENT'] =~ /MSIE/ -%>
+
+    <%= render '/refinery/header' -%>
+
+    <%= render '/shared/banner' %>
+
+    <% if action_name == "index" %>
+
+      <% if @activities.present? %>
+      <div id="activities">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 div1">
+                <h1>Experiences</h1>
+                <ul>
+                  <% @activities.each do |activity| %>
+                  <li>
+                    <h3><%= link_to activity.name, refinery.activities_activity_path(activity) %></h3>
+                  </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+    <% else %>
+
+      <div id="welcome">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 div1">
+              <p>
+                <%=raw @activity.description %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <% accommodations = Refinery::Accommodations::Accommodation.all %>
+      <% if accommodations.present? %>
+        <div class="accommodations">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12">
+                <h1>Popular Lodges</h1>
+                <div id="accommodations_slider">
+                  <% accommodations.each do |accommodation| %>
+                    <div class="slide">
+                      <%= link_to refinery.accommodations_accommodation_path(accommodation)  do %>                        
+                        <%= image_fu accommodation.cover_image, "300x175#c" if accommodation.cover_image.present? %> 
+                        <%= accommodation.name %>
+                      <% end %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+    <% locations = Refinery::Locations::Location.all %>
+    <% if locations.present? %>
+      <div class="locations">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+              <h1>Popular Places</h1>
+              <div id="locations_slider">
+                <% locations.each do |location| %>
+                    <div class="slide">
+                      <%= link_to refinery.locations_location_path(location)  do %>                        
+                        <%= image_fu location.cover_image, "300x175#c" if location.cover_image.present? %> 
+                        <%= location.name %>
+                      <% end %>
+                    </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+    <%= render '/refinery/footer' -%>
+
+    <%= render '/refinery/javascripts' %>
+  </body>
+</html>

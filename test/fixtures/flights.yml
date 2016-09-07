@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  airline_and_flight_no: MyString
+  departure_airport: MyString
+  departure: 2016-05-17 10:19:11
+  arrival_airport: MyString
+  arrival: 2016-05-17 10:19:11
+  booking_id: 1
+
+two:
+  airline_and_flight_no: MyString
+  departure_airport: MyString
+  departure: 2016-05-17 10:19:11
+  arrival_airport: MyString
+  arrival: 2016-05-17 10:19:11
+  booking_id: 1

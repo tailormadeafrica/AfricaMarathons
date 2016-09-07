@@ -1,0 +1,96 @@
+<%= form_for [refinery, :activities_admin, @activity] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @activity,
+              :include_object_name => true %>
+
+  <%= hidden_field_tag 'product[location_ids][]' %>
+  <%= hidden_field_tag 'product[accommodation_ids][]' %>
+
+  
+  <div class='field'>
+    <%= f.label :name -%>
+    <%= f.text_field :name, :class => 'larger widest'  -%>
+
+  </div>
+
+  <div class='field'>
+    <%= f.label :sub_name -%>
+    <%= f.text_field :sub_name, :class => 'larger widest'  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :cover_image -%>
+    <%= render '/refinery/admin/image_picker',
+               :f => f,
+               :field => :cover_image_id,
+               :image => @activity.cover_image,
+               :toggle_image_display => false %>
+
+  </div>
+  
+  <div class='field'>
+    <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
+      <ul id='page_parts'>
+        <% [:description].each_with_index do |part, part_index| %>
+          <li class='ui-state-default<%= ' ui-state-active' if part_index == 0 %>'>
+            <%= link_to t("#{part}", :scope => "activerecord.attributes.refinery/activities/activity", :default => part.to_s.titleize), "##{part}" %>
+          </li>
+        <% end %>
+      </ul>
+      <div id='page_part_editors'>
+        <% [:description].each do |part| %>
+          <div class='page_part' id='<%= part %>'>
+            <%= f.text_area part, :rows => 20, :class => 'wymeditor widest' -%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :rating -%>
+    <%= f.text_field :rating  -%>
+
+  </div>
+
+  <div class='field'>
+    <%= f.label :gallery_id, 'Gallery' -%>
+    <%= f.collection_select :gallery_id, ::Refinery::Portfolio::Gallery.order(:title), :id , :title, {:prompt => "-- Please select when relevant --"}, {} -%>
+  </div>
+
+  
+
+  <div class="field">
+    <%= f.label :locations %>
+    <% ::Refinery::Locations::Location.all.each do |location| %>
+      <div>
+        <%= check_box_tag "activity[location_ids][]", location.id, @activity.locations.include?(location) %>
+        <%= location.name %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :accommodations %>
+    <% ::Refinery::Accommodations::Accommodation.all.each do |accommodation| %>
+      <div>
+        <%= check_box_tag "activity[accommodation_ids][]", accommodation.id, @activity.accommodations.include?(accommodation) %>
+        <%= accommodation.name %>
+      </div>
+    <% end %>
+  </div>
+  
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.activities.admin.activities.activity'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @activity.name) %>
+<% end -%>
+<% content_for :javascripts do %>
+  <script>
+    $(document).ready(function(){
+      page_options.init(false, '', '');
+    });
+  </script>
+<% end %>

@@ -1,0 +1,28 @@
+nb:
+  refinery:
+    plugins:
+      amenities:
+        title: Amenities
+    amenities:
+      admin:
+        amenities:
+          actions:
+            create_new: Lag en ny Amenity
+            reorder: Endre rekkefølgen på Amenities
+            reorder_done: Ferdig å endre rekkefølgen Amenities
+          records:
+            title: Amenities
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Amenities enda. Klikk på "Lag en ny Amenity" for å legge til din første amenity.
+          amenity:
+            view_live_html: Vis hvordan denne amenity ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            edit: Rediger denne amenity
+            delete: Fjern denne amenity permanent
+      amenities:
+        show:
+          other: Andre Amenities
+  activerecord:
+    attributes:
+      'refinery/amenities/amenity':
+        name: Name
+        image: Image

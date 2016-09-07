@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<%= render '/refinery/html_tag' %>
+  <% site_bar = render('/refinery/site_bar', :head => true) -%>
+  <%= render '/refinery/head' %>
+  <body id="container">
+    <%= site_bar -%>
+    <%= render '/refinery/ie6check' if request.env['HTTP_USER_AGENT'] =~ /MSIE/ -%>
+
+    <%= render '/refinery/header' -%>
+
+    <%= render '/shared/banner' %>
+
+    <% if params[:search].present? %>
+      <div id="locations">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 div1">
+              <h1>Search Results for: <%= params[:search] %></h1>
+              <% if @all_locations.present? and @all_accommodations.present? %>
+                <% if @all_locations.present? %>
+                  <h3>Locations</h3>
+                  <ul>
+                    <% @all_locations.each do |location| %>
+                      <li>
+                        <%= link_to location.name, refinery.locations_location_path(location) %>
+                      </li>
+                    <% end %>
+                  </ul>
+                <% end %>
+                <% if @all_accommodations.present? %>
+                  <h3>Accommodations</h3>
+                  <ul>
+                    <% @all_locations.each do |accommodation| %>
+                      <li>
+                        <%= link_to accommodation.name, refinery.accommodations_accommodation_path(accommodation) %>
+                      </li>
+                    <% end %>
+                  </ul>
+                <% end %>
+              <% else %>
+                Sorry, no search results was found.
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% elsif action_name == "index" %>
+
+      <% if @locations.present? %>
+        <div id="locations">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 div1">
+                <h1>Locations</h1>
+                <ul>
+                  <% @locations.each do |location| %>
+                    <li>
+                      <%= link_to location.name, refinery.locations_location_path(location) %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+    <% elsif @location.present? and check_location(@location.id) %>
+
+      <div id="welcome">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 div1">
+                <%=raw @location.description %>
+            </div>
+            <div class="col-xs-12">
+              <a type="button" class="btn btn-default btn-custom" data-toggle="modal" data-target="#myModal">Start Your Journey</a>
+              <!-- Modal -->
+              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="col-xs-12">
+                          <div class="">
+                            <h1><%= copywriting('Contact title', {:phrase_type => 'string', :scope => 'Footer', :default => 'Let us tailor make your next journey' }) %></h1>
+                            <p><%= copywriting('Contact Text', {:phrase_type => 'text', :scope => 'Footer', :default => 'Whether you are a seasoned Africa traveller or going to Africa for the very first time, we would love to speak to you. Our first aim is to get to know you, what interests you have and to then match these with our tailormade collection of experiences, camps and lodges. It is always best to talk this over and get the ball rolling from there, so please do pick up the phone for an informal chat with us. We look forward to speaking with you and tailor making your next journey.' }) %></p>
+                          </div>
+                          <div class="contact-form">
+                            <h2>Fill in the form below and we'll get back to you asap</h2>
+                            <% @inquiry ||= ::Refinery::Inquiries::Inquiry.new %>
+                            <%= simple_form_for [refinery, :inquiries, @inquiry], :html => {:class => 'form-vertical'} do |f| %>
+                            <div class="row">
+                              <div class="col-xs-12 col-sm-6">
+                                <%= f.input :name, :wrapper => :bootstrap_12, :input_html => { :class => 'form-control' } %>
+                                <%= f.input :email, :wrapper => :bootstrap_12, :input_html => { :class => 'form-control' }%>
+                                <%= f.input :phone, :wrapper => :bootstrap_12, :input_html => { :class => 'form-control' } %>
+                              </div>
+                              <div class="col-xs-12 col-sm-6">
+                                <%= f.input :message, :wrapper => :bootstrap_12,:input_html  => {:rows=>6, :class => 'form-control' } %>
+                              </div>
+                              <div class="col-xs-12 col-sm-6">
+                                <img src="/assets/captcha.png" class="img-responsive captcha">
+                              </div>
+                              <div class="col-xs-12 col-sm-6">
+                                <%= f.input :captcha, :wrapper => :bootstrap_12, :input_html => { :class => 'form-control' } %>
+                              </div>
+                              <div class="col-xs-12">
+                                <%= f.submit 'Submit', :class=>"btn btn-default btn-custom", :data => {:disable_with => "Saving..."} %>
+                              </div>
+                            </div>
+                            <% end %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <%#= link_to 'Start Your Journey', '#contact', :class=>"btn btn-default btn-custom" %>
+            </div>
+          </div>
+          <% child_locations = Refinery::Locations::Location.where(:parent_id => @location.id) %>
+          <% if child_locations.present? %>
+          <div class="locations">
+            <div class="row">
+              <div class="col-xs-12">
+                <h2>Truly Special Locations</h2>
+                <p><%=raw @location.side_body %></p>
+                <div id="locations_slider">
+                  <% child_locations.each do |child| %>
+                    <div class="slide">
+                      <%= link_to refinery.locations_location_path(child)  do %>
+                        <%= image_fu child.cover_image, "165x165#c" if child.cover_image.present? %>
+                        <div class="name"><%= raw child.name %></div>
+                      <% end %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+
+      <% blogs = @location.posts.live.first(3) %>
+      <% if blogs.present? %>
+        <div id="locations-blog-container">
+          <div class="container">
+            <div class="location_blogs">
+              <div class="container">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <h1>Recent <%= @location.name %> Posts</h1>
+                  </div>
+                  <% blogs.each_with_index do |blog, index| %>
+                    <div class="col-xs-6 col-sm-6 col-md-4">
+                      <div class="blog-post">
+                      <%= link_to refinery.blog_post_path(blog)  do %>
+                        <%= image_fu blog.image, "360x280#c", :class=>"img-responsive" if blog.image.present? %>
+                        <div class="banner-arrow"><img class="img-responsive" src="/assets/arrow.png"></div>
+                        <div class="content">
+                          <h2><%= link_to blog.title, refinery.blog_post_path(blog) %></h2>
+                          <div class="date"><%= blog.published_at.strftime("%d %B %Y") %></div>
+                          <% if Refinery::Blog::Post.teasers_enabled? %>
+                            <% if blog.respond_to?(:custom_teaser) && blog.custom_teaser.present? %>
+                              <%= blog.custom_teaser.html_safe %>
+                            <% else %>
+                             <%= truncate(blog.body, {
+                               :length => Refinery::Blog.post_teaser_length,
+                               :preserve_html_tags => true
+                              }).html_safe
+                             %>
+                             <% end %>
+                          <% else %>
+                            <%= blog.body.html_safe %>
+                          <% end %>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+    <% else %>
+      <div id="welcome">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 div1">
+            <%=raw @location.description %>
+          </div>
+          <div class="col-xs-12">
+            <a type="button" class="btn btn-default btn-custom" data-toggle="modal" data-target="#myModal">Start Your Journey</a>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <div class="">
+                          <h1><%= copywriting('Contact title', {:phrase_type => 'string', :scope => 'Footer', :default => 'Let us tailor make your next journey' }) %></h1>
+                          <p><%= copywriting('Contact Text', {:phrase_type => 'text', :scope => 'Footer', :default => 'Whether you are a seasoned Africa traveller or going to Africa for the very first time, we would love to speak to you. Our first aim is to get to know you, what interests you have and to then match these with our tailormade collection of experiences, camps and lodges. It is always best to talk this over and get the ball rolling from there, so please do pick up the phone for an informal chat with us. We look forward to speaking with you and tailor making your next journey.' }) %></p>
+                        </div>
+                        <div class="contact-form">
+                          <h2>Fill in the form below and we'll get back to you asap</h2>
+                          <% @inquiry ||= ::Refinery::Inquiries::Inquiry.new %>
+                          <%= simple_form_for [refinery, :inquiries, @inquiry], :html => {:class => 'form-vertical'} do |f| %>
+                          <div class="row">
+                            <div class="col-xs-12 col-sm-6">
+                              <%= f.input :name, :wrapper => :bootstrap_12, :input_html => { :class => 'form-control' } %>
+                              <%= f.input :email, :wrapper => :bootstrap_12, :input_html => { :class => 'form-control' }%>
+                              <%= f.input :phone, :wrapper => :bootstrap_12, :input_html => { :class => 'form-control' } %>
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                              <%= f.input :message, :wrapper => :bootstrap_12,:input_html  => {:rows=>6, :class => 'form-control' } %>
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                              <img src="/assets/captcha.png" class="img-responsive captcha">
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                              <%= f.input :captcha, :wrapper => :bootstrap_12, :input_html => { :class => 'form-control' } %>
+                            </div>
+                            <div class="col-xs-12">
+                              <%= f.submit 'Submit', :class=>"btn btn-default btn-custom", :data => {:disable_with => "Saving..."} %>
+                            </div>
+                            </div>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <%#= link_to 'Start Your Journey', '#contact', :class=>"btn btn-default btn-custom" %>
+          </div>
+        </div>
+        <% accommodations = @location.accommodations %>
+        <% if accommodations.present? %>
+          <div class="accommodations">
+            <div class="row">
+              <div class="col-xs-12">
+                <h2 id="camps">Camps / Lodges</h2>
+                <div id="accommodations_slider">
+                  <% accommodations.each do |accommodation| %>
+                    <div class="slide">
+                      <%= link_to refinery.accommodations_accommodation_path(accommodation), :remote => true do %>
+                        <%= image_fu accommodation.cover_image, "165x165#c" if accommodation.cover_image.present? %>
+                        <div class="name"><%= raw accommodation.name %></div>
+                      <% end %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <!--           start           -->
+    <div class="accommodation_item" id="accommodation_item"></div>
+    <!--            end             -->
+
+  <% end %>
+
+    <%= render '/refinery/footer' -%>
+
+    <%= render '/refinery/javascripts' %>
+
+  </body>
+</html>

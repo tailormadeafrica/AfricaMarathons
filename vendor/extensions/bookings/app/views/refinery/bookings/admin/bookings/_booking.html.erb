@@ -1,0 +1,16 @@
+<li class='clearfix record <%= cycle("on", "on-hover") %>'>
+  <span class='title'>
+    <%= link_to booking.name, refinery.bookings_admin_booking_path(booking) %> <%= t('.said') %>
+    <span class="preview"><%= truncate(strip_tags(booking.message), :length => 60) -%></span>
+  </span>
+  <span class='actions'>
+    <%= link_to refinery_icon_tag('delete.png'), refinery.bookings_admin_booking_path(booking),
+                :class => "cancel confirm-delete",
+                :title => t('admin.bookings.delete'),
+                :'data-confirm' => t('shared.admin.delete.message', :title => booking.name),
+                :'data-method' => "delete" -%>
+
+    <%= link_to refinery_icon_tag('zoom.png'), refinery.bookings_admin_booking_path(booking),
+                :title => t('.read_booking') -%>
+  </span>
+</li>

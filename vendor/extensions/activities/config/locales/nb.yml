@@ -1,0 +1,30 @@
+nb:
+  refinery:
+    plugins:
+      activities:
+        title: Activities
+    activities:
+      admin:
+        activities:
+          actions:
+            create_new: Lag en ny Activity
+            reorder: Endre rekkefølgen på Activities
+            reorder_done: Ferdig å endre rekkefølgen Activities
+          records:
+            title: Activities
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Activities enda. Klikk på "Lag en ny Activity" for å legge til din første activity.
+          activity:
+            view_live_html: Vis hvordan denne activity ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            edit: Rediger denne activity
+            delete: Fjern denne activity permanent
+      activities:
+        show:
+          other: Andre Activities
+  activerecord:
+    attributes:
+      'refinery/activities/activity':
+        name: Name
+        cover_image: Cover Image
+        description: Description
+        rating: Rating

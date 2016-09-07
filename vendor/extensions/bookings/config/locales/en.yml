@@ -1,0 +1,93 @@
+en:
+  refinery:
+    plugins:
+      bookings:
+        title: Bookings
+        description: Provides a contact form and stores bookings
+    bookings:
+      bookings:
+        new:
+          send: Send message
+          privacy_policy: We value your privacy
+      admin:
+        bookings:
+          delete: Remove this booking forever
+          booking:
+            read_booking: Read the booking
+            said: said
+            mark_as_spam: Mark as spam
+            mark_as_ham: Move to inbox
+          submenu:
+            inbox: Inbox
+            spam: Spam
+            update_notified: Update who gets notified
+            edit_confirmation_email: Edit confirmation email
+          index:
+            no_bookings: You have not received any bookings yet.
+          spam:
+            no_spam: Hooray! You don't have any spam.
+          show:
+            details: Details
+            age: Age
+            actions: Actions
+            back_to_all_bookings: Back to all bookings
+            spam: Spam
+            spam_yes: 'yes'
+            booking: Booking
+            to: To
+            from: From
+            click_to_email: Click to email this address
+            phone: Phone
+            date: Date
+            message: Message
+        settings:
+          notification_recipients_form:
+            settings_value_name: Send notifications to
+            explanation: Every time someone contacts you on your website, Refinery sends out an email to say there is a new booking.
+            hint: When a new booking is submitted, Refinery will send an email notification to you.
+            example: "Enter your email address(es) like: jack@work.com, jill@office.com"
+          confirmation_email_form:
+            to: To
+            from: From
+            subject: Subject
+            click_to_edit_subject: Click here to edit the subject
+            explanation: Every time someone contacts you on your website, Refinery sends out an email to confirm the booking with the person who made it.
+            below_edit_email_sent: Below you can edit the email that is sent out.
+            the_customer_making_booking: The customer making the booking
+            message: Message
+            note: "Note: place the text %name% where you'd like the customer's name to appear in the email"
+      mailer:
+        notification:
+          greeting: Hi there
+          you_recieved_new_booking: You just received a new booking on your website.
+          booking_starts: --- booking starts ---
+          booking_ends: --- booking ends ---
+          from: From
+          email: Email
+          phone: Phone
+          message: Message
+          closing_line: Kind Regards
+          ps_html: P.S. All your bookings are stored in the "Bookings" section of Refinery should you ever want to view it later there.
+  activerecord:
+    models:
+      booking: Booking
+    attributes:
+      booking:
+        full_name: Full name
+        email: Email
+        telephone: Telephone
+        cellphone: Cellphone
+        address: Address
+        dont_get_newsletters: Dont get newsletters
+        insurance_company: Insurance company
+        policy_number: Policy number
+        emergency_number: Emergency number
+        certify_personal_insurance: Certify personal insurance
+        honeymoon: Honeymoon
+        birthday: Birthday
+        anniversary: Anniversary
+        birthday_who_and_when: Birthday who and when
+        anniversary_who_and_where: Anniversary who and where
+        emergency_contacts: Emergency contacts
+        i_accept: I accept
+        i_accept_name: I accept name

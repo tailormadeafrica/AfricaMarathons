@@ -1,0 +1,11 @@
+<% content_for :body_content_left do %>
+  <ul id="accommodations">
+    <% @accommodations.each do |accommodation| %>
+      <li>
+        <%= link_to accommodation.name, refinery.accommodations_accommodation_path(accommodation) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render '/refinery/content_page' %>

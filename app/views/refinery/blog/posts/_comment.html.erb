@@ -1,0 +1,15 @@
+<article class='blog_comment_message' id='<%= "comment-#{comment.to_param}" %>'>
+<div class="row">
+  <div class="blog-comment">
+
+    <div class="col-xs-12">
+      <div class="details">
+        <span><%= t('by', :scope => 'refinery.blog.posts.comments', :who => comment.name) %>,</span>
+        <%= t('time_ago', :scope => 'refinery.blog.posts.comments', :time => time_ago_in_words(comment.created_at)) %>
+      </div>
+      <%= simple_format auto_link(comment.message.to_s) %>
+    </div>
+  </div>
+</div>
+  
+</article>

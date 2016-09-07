@@ -1,0 +1,200 @@
+<%= form_for [refinery, :accommodations_admin, @accommodation] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @accommodation,
+              :include_object_name => true %>
+
+  <%= hidden_field_tag 'accommodation[activity_ids][]' %>
+  <%= hidden_field_tag 'accommodation[location_ids][]' %>
+  <%= hidden_field_tag 'accommodation[amenity_ids][]' %>
+  
+  <div class='field'>
+    <%= f.label :name -%>
+    <%= f.text_field :name, :class => 'larger widest'  -%>
+
+  </div>
+
+  <div class='field'>
+    <%= f.label :sub_name -%>
+    <%= f.text_field :sub_name, :class => 'larger widest'  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :cover_image -%>
+    <%= render '/refinery/admin/image_picker',
+               :f => f,
+               :field => :cover_image_id,
+               :image => @accommodation.cover_image,
+               :toggle_image_display => false %>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :rating -%>
+    <%= f.text_field :rating  -%>
+
+  </div>
+  
+  <div class='field'>
+    <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
+      <ul id='page_parts'>
+        <% [:description, :address].each_with_index do |part, part_index| %>
+          <li class='ui-state-default<%= ' ui-state-active' if part_index == 0 %>'>
+            <%= link_to t("#{part}", :scope => "activerecord.attributes.refinery/accommodations/accommodation", :default => part.to_s.titleize), "##{part}" %>
+          </li>
+        <% end %>
+      </ul>
+      <div id='page_part_editors'>
+        <% [:description, :address].each do |part| %>
+          <div class='page_part' id='<%= part %>'>
+            <%= f.text_area part, :rows => 20, :class => 'wymeditor widest' -%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class='field'>
+    <%= f.label :gallery_id, 'Gallery' -%>
+    <%= f.collection_select :gallery_id, ::Refinery::Portfolio::Gallery.order(:title), :id , :title, {:prompt => "-- Please select when relevant --"}, {} -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :location_id -%>
+    <%= f.collection_select :location_id, ::Refinery::Locations::Location.order(:name), :id, :name, {:prompt => "-- Please Select --"}  -%>
+
+  </div>
+
+  <div class='field'>
+    <%= f.label :latitude -%>
+    <%= f.text_field :latitude  -%>
+
+  </div>
+
+  <div class='field'>
+    <%= f.label :longitude -%>
+    <%= f.text_field :longitude  -%>
+
+  </div>
+
+  <div class='field'>
+    <%= f.label :low_rate -%>
+    <%= f.text_field :low_rate  -%>
+
+  </div>
+
+  <div class='field'>
+    <%= f.label :mid_rate -%>
+    <%= f.text_field :mid_rate  -%>
+
+  </div>
+
+  <div class='field'>
+    <%= f.label :high_rate -%>
+    <%= f.text_field :high_rate  -%>
+
+  </div>
+
+  <div class='field'>
+    <%= f.label :jan, 'January' -%>
+    <%= f.select :jan, ::Refinery::Accommodations::Accommodation::RATES, {:include_blank => true} %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :feb, 'February' -%>
+    <%= f.select :feb, ::Refinery::Accommodations::Accommodation::RATES, {:include_blank => true} %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :marc, 'March' -%>
+    <%= f.select :marc, ::Refinery::Accommodations::Accommodation::RATES, {:include_blank => true} %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :apr, 'April' -%>
+    <%= f.select :apr, ::Refinery::Accommodations::Accommodation::RATES, {:include_blank => true} %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :may, 'May' -%>
+    <%= f.select :may, ::Refinery::Accommodations::Accommodation::RATES, {:include_blank => true} %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :jun, 'June' -%>
+    <%= f.select :jun, ::Refinery::Accommodations::Accommodation::RATES, {:include_blank => true} %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :jul, 'July' -%>
+    <%= f.select :jul, ::Refinery::Accommodations::Accommodation::RATES, {:include_blank => true} %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :aug, 'August' -%>
+    <%= f.select :aug, ::Refinery::Accommodations::Accommodation::RATES, {:include_blank => true} %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :sept, 'September' -%>
+    <%= f.select :sept, ::Refinery::Accommodations::Accommodation::RATES, {:include_blank => true} %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :oct, 'October' -%>
+    <%= f.select :oct, ::Refinery::Accommodations::Accommodation::RATES, {:include_blank => true} %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :nov, 'November' -%>
+    <%= f.select :nov, ::Refinery::Accommodations::Accommodation::RATES, {:include_blank => true} %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :dec, 'December' -%>
+    <%= f.select :dec, ::Refinery::Accommodations::Accommodation::RATES, {:include_blank => true} %>
+  </div>
+
+  <div class="field">
+    <%= f.label :amenities %>
+    <% ::Refinery::Amenities::Amenity.all.each do |amenity| %>
+      <div>
+        <%= check_box_tag "accommodation[amenity_ids][]", amenity.id, @accommodation.amenities.include?(amenity) %>
+        <%= amenity.name %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :activities %>
+    <% ::Refinery::Activities::Activity.all.each do |activity| %>
+      <div>
+        <%= check_box_tag "accommodation[activity_ids][]", activity.id, @accommodation.activities.include?(activity) %>
+        <%= activity.name %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :locations %>
+    <% ::Refinery::Locations::Location.where("parent_id IS NOT NULL").all.each do |location| %>
+      <div>
+        <%= check_box_tag "accommodation[location_ids][]", location.id, @accommodation.locations.include?(location) %>
+        <%= location.name %>
+      </div>
+    <% end %>
+  </div>
+  
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.accommodations.admin.accommodations.accommodation'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @accommodation.name) %>
+<% end -%>
+<% content_for :javascripts do %>
+  <script>
+    $(document).ready(function(){
+      page_options.init(false, '', '');
+    });
+  </script>
+<% end %>

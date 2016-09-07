@@ -1,0 +1,10 @@
+<section id='records' class='tree'>
+  <%= render 'records' %>
+</section>
+
+<section id='actions'>
+  <%= render :partial => 'actions' %>
+</section>
+
+<%= render '/refinery/admin/make_sortable', :tree => true if @galleries.many? %>
+<% content_for :stylesheets, stylesheet_link_tag('refinery/portfolio/admin/galleries') %>

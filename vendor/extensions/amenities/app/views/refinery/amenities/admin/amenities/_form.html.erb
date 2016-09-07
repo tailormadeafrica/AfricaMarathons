@@ -1,0 +1,27 @@
+<%= form_for [refinery, :amenities_admin, @amenity] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @amenity,
+              :include_object_name => true %>
+
+  
+  <div class='field'>
+    <%= f.label :name -%>
+    <%= f.text_field :name, :class => 'larger widest'  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :image -%>
+    <%= render '/refinery/admin/image_picker',
+               :f => f,
+               :field => :image_id,
+               :image => @amenity.image,
+               :toggle_image_display => false %>
+
+  </div>
+  
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.amenities.admin.amenities.amenity'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @amenity.name) %>
+<% end -%>

@@ -1,0 +1,205 @@
+<% content_for :body_content_left do %>
+
+
+
+
+
+
+
+
+  <div class='bookings'>
+
+
+    <%= nested_form_for [refinery, :bookings, @booking] do |f| %>
+      <%= render '/refinery/admin/error_messages',
+                 :object => @booking,
+                 :include_object_name => true  %>
+      <div class="personal">
+        <div class="row">
+          <div class="col-xs-12">
+            <h2>Party Leader Contact Details</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <div class='field full_name_field string_field'>
+              <%= f.text_field :full_name, :label => false, :placeholder => "Name"  %>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <div class='field email_field string_field'>
+              <%= f.text_field :email, :label => false, :placeholder => "Email"  %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <div class='field telephone_field string_field'>
+              <%= f.text_field :telephone, :label => false, :placeholder => "Home Phone"  %>
+            </div>          
+            <div class='field cellphone_field string_field'>
+              <%= f.text_field :cellphone, :label => false, :placeholder => "Mobile Phone"  %>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-6">      
+            <div class='field address_field text_field'>
+              <%= f.text_area :address, :rows => 2, :label => false, :placeholder => "Address"  %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class='field dont_get_newsletters_field boolean_field'>
+              <%= f.check_box :dont_get_newsletters %>
+              <%= f.label :"Please tick the box if you do not wish to receive our newsletters or offer emails" %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="passport">
+        <div class="row">
+          <div class="col-xs-12">
+            <h2>Passenger & Passport Details</h2>
+            <p>Party leader first. <strong style="color:#a30000;">Names as written on passport:</strong> Please note this is vital for aircraft ticketing. Incorrect first and last names or spellings can result in the need to repurchase full fare tickets with no refund.</p>
+          </div>
+        </div>
+        <%= f.fields_for :passports do |builder| %>
+          <%= render 'passport_fields', item: builder %>
+        <% end %>
+        <div class="row">
+          <div class="col-xs-12">
+            <%= f.link_to_add "Add a Passenger", :passports, :class => "link" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="flights">
+        <div class="row">
+          <div class="col-xs-12">
+            <h2>International Flight Details</h2>
+            <p>Please add your international flight details below if you have arranged or are arranging them yourselves.</p>
+          </div>
+        </div>
+        <%= f.fields_for :flights do |builder| %>
+          <%= render 'flight_fields', item: builder %>
+        <% end %>
+        <div class="row">
+          <div class="col-xs-12">
+            <%= f.link_to_add "Add a Flight", :flights, :class => "link" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="insurance">
+        <div class="row">
+          <div class="col-xs-12">
+            <h2>Personal Travel Insurance</h2>
+            <p>All travellers must have suitable travel insurance. Please furnish your travel insurance details below.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-4">
+            <div class='field insurance_company_field string_field'>
+              <%= f.text_field :insurance_company, :label => false, :placeholder => "Insurance Company"  %>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-4">
+            <div class='field policy_number_field string_field'>
+              <%= f.text_field :policy_number, :label => false, :placeholder => "Policy Number (if applicable)"  %>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-4">
+            <div class='field emergency_number_field string_field'>
+              <%= f.text_field :emergency_number, :label => false, :placeholder => "24hr Emergancy Number"  %>
+            </div>
+          </div>
+        </div>
+        <br/>
+        <div class="row">
+          <div class="col-xs-12">
+            <span>Should you not have any cover in place, please complete the booking form and provide details of your insurance no later than 8 weeks prior to your trip departure.</span>
+            <div class='field certify_personal_insurance_field boolean_field'>
+              <%= f.check_box :certify_personal_insurance %>
+              <%= f.label :"Please check the box to certify that you (the client) will arrange suitable personal travel insurance cover" %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="requests">
+        <div class="row">
+          <div class="col-xs-12">
+            <h2>Special Requests</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-4">
+            <div class='field honeymoon_field boolean_field'>
+              <%= f.check_box :honeymoon %>
+              <%= f.label :honeymoon %>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-8 hidden-xs">&nbsp;</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-4">
+            <div class='field birthday_field booleon_field'>
+              <%= f.check_box :birthday %>
+              <%= f.label :birthday %>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-8">
+            <div class='field birthday_who_and_when_field string_field'>
+              <%= f.text_field :birthday_who_and_when, :label => false, :placeholder => "Birthday Who & When"  %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-4">
+            <div class='field anniversary_field boolean_field'>
+              <%= f.check_box :anniversary %>
+              <%= f.label :anniversary %>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-8">
+            <div class='field anniversary_who_and_where_field string_field'>
+              <%= f.text_field :anniversary_who_and_where, :label => false, :placeholder => "Anniversary Who & When"  %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="emergency">
+        <div class="row">
+          <div class="col-xs-12">
+            <h2>Emergency Contact</h2>
+            <p>Please provide the name and contact number of a person we may contact in case of emergency for each traveller.</p>
+            <div class='field emergency_contacts_field text_field'>
+              <%= f.text_area :emergency_contacts, :rows => 2, :label => false, :placeholder => "Emergency Contact Details"  %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="acceptance">
+        <div class="row">
+          <div class="col-xs-12">
+            <h2>Acceptance</h2>
+            <div class='field i_accept_field boolean_field'>
+              <%= f.check_box :i_accept, :class=>"accept" %>
+              <%= f.label :"I accept all terms and conditions on behalf of the above-named travellers" %>
+            </div>
+            <div class='field i_accept_name_field string_field'>
+              <%= f.text_field :i_accept_name, :label => false, :placeholder => "Full Name"  %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='actions'>
+        <input type="submit" value="Submit" class="submit_booking btn-custom" />
+      </div>
+    <% end %>
+  </div>
+
+<% end %>
+<%= render '/refinery/content_page' %>

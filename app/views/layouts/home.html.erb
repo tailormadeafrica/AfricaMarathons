@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<%= render '/refinery/html_tag' %>
+<% site_bar = render('/refinery/site_bar', :head => true) -%>
+<%= render '/refinery/head' %>
+  <body id="container">
+  <%= site_bar -%>
+  <%= render '/refinery/ie6check' if request.env['HTTP_USER_AGENT'] =~ /MSIE/ -%>
+
+  <div class="header-partial">
+    <%= render '/refinery/header' -%>
+  </div>
+  <%= render '/shared/banner' %>
+
+  <div id="welcome">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 div1">
+          <h1><%= @page.title %></h1>
+          <%= raw @page.content_for(:body) %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="people">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="content-container">
+            <div class="content div2">
+              <h2><%= copywriting('Street Child First Text', {:phrase_type => 'text', :scope => 'Home Page', :default => '"WE STRONGLY BELIEVE THAT TRAVELLING TO AFRICA SHOULD MAKE A DIFFERENCE NOT JUST TO TRAVELLERS, BUT TO THE COUNTRIES AND PEOPLES OF THAT VAST AND BEAUTIFUL CONTINENT – THAT THE JOURNEY BENEFITS ALL INVOLVED."' }) %></h2>
+              <p><%= copywriting('Street Child Second Text', {:phrase_type => 'text', :scope => 'Home Page', :default => 'With this in mind, we work with top-level local guides and hosts, and only use on-the-ground partners that we have long-standing relationships with and who share our values. We directly support our charity partners that make lasting and worthwhile contributions to the countries they work in.' }) %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="locations">
+    <div class="container">
+        <div class="row">
+          <div class="col-xs-12 div3"> 
+          <div class="streetchild">      
+            <a href="http://www.street-child.co.uk" target="_blank"><img src="/assets/download.jpg"></a>
+            <p>Street Child is a UK education and child welfare organisation that has worked with over 30,000 street children in Sierra Leone, Liberia and Nepal since 2008. Street Child empowers children by providing education opportunities and income-generating initiatives to enable families to build a sustainable future. Furthermore, they have been at the forefront of the ebola crisis: providing care for over 13,000 children orphaned by the virus by resettling them within a safe and secure family home and enrolling them in school. We have a strong relationship with Street Child and have been lucky enough to see the amazing work they do on the ground in Sierra Leone first hand. Every trip booked with us will directly support their work.</p>
+          </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div id="countries">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="content-container">
+            <div class="content">
+              <h1><%= copywriting('Countries Title', {:phrase_type => 'string', :scope => 'Footer', :default => 'In depth knowledge of 16 countries' }) %></h1>
+              <p><%= copywriting('Countries Text', {:phrase_type => 'text', :scope => 'Footer', :default => 'Over many years of experience in our industry the founders and directors of Tailormade Africa have built up a detailed, in depth knowledge of 16 countries on the African continent. Not only do we offer the better known destinations in Africa but we actively promote and support the countries where the tourism infrastructure is not as advanced or, dare we say, compromised by over-commercialization. Including some of these less well-known regions in your Tailormade Africa itinerary is highly rewarding. As well as recapturing that sense of exploration you will be making a positive and long lasting impact on the development of local tourism, conservation and job creation.' }) %></p>
+              <% @menu_locations = Refinery::Locations::Location.where('parent_id IS null') %>
+              <% if @menu_locations.present? %>
+                <ul class="footer_location_nav">
+                  <% @menu_locations.each do |location| %>
+                    <li>
+                      <%= link_to refinery.locations_location_path(location) do %>
+                        <%= image_fu location.flag_image, '35x35#c', :class=>"img-circle" %><br>
+                        <span><%= location.name %></span>
+                      <% end %>
+                    </li>
+                  <% end %>
+                </ul>
+              <% end %>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <%= render '/refinery/footer' -%>
+
+  <%= render '/refinery/javascripts' %>
+  </body>
+</html>

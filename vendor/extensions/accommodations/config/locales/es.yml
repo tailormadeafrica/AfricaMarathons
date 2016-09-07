@@ -1,0 +1,31 @@
+es:
+  refinery:
+    plugins:
+      accommodations:
+        title: Accommodations
+#        article: masculino/femenino
+    accommodations:
+      admin:
+        accommodations:
+          actions:
+            create_new: Crear nuevo accommodation
+            reorder: Reordenar accommodations
+            reorder_done: Reordenación de accommodations completada
+          records:
+            title: Accommodations
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay accommodations todavía. Pulsa en "Crear nuevo Accommodation" para crear tu primer accommodation.
+          accommodation:
+            view_live_html: Ver este accommodation como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este accommodation
+            delete: Borrar este accommodation para siempre
+      accommodations:
+        show:
+          other: Otros accommodations
+  activerecord:
+    attributes:
+      'refinery/accommodations/accommodation':
+        name: Name
+        cover_image: Cover Image
+        rating: Rating
+        description: Description

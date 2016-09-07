@@ -1,0 +1,25 @@
+
+  <div class="row">
+    <div class="col-xs-12 no-gutter">
+      <%= item.text_field :airline_and_flight_no, :label => false, :placeholder => "Airline & Flight Number"  %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 no-gutter select">
+      <%= item.text_field :departure_airport, :label => false, :placeholder => "Departure Airport", :class => "departure"  %>
+      <%= item.datetime_select(:departure, :order => [:month, :day, :year], use_short_month: true) %>
+    </div>
+    <div class="col-xs-12 no-gutter select">
+      <%= item.text_field :arrival_airport, :label => false, :placeholder => "Arrival Airport", :class => "arrival"  %>
+      <%= item.datetime_select(:arrival, :order => [:month, :day, :year], use_short_month: true) %>
+    </div>
+  </div>
+  <span><%= item.link_to_remove "x" %></span>
+
+
+
+
+
+
+
+

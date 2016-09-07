@@ -1,0 +1,45 @@
+<% flash.each do |key, value| %>
+ <div id='flash' class="flash flash_<%= key %>">
+   <%= value %>
+ </div>
+<% end %>
+<article id="blog_post">
+  <header>
+    <%= image_fu(@post.image, "750x", :class=>"img-responsive") %>    
+  </header>
+  <%= @post.body.html_safe %>
+<div class="share">
+  <span class='st_twitter'></span>
+  <span class='st_facebook'></span>
+  <span class='st_pinterest'></span>
+  <span class='st_linkedin'></span>
+  <span class='st_' displayText=''></span>
+</div>
+<hr>
+</article>
+
+
+<% content_for :right do %>
+  <% if @post.locations.present? %>
+<div class="blog_rhs">
+      <h2>Location</h2>
+      <ul>
+        <% @post.locations.each do |location| %>
+          <li class='clearfix'>     
+          <%= link_to(image_fu(location.cover_image, "105x80#c", :class=>"hidden-sm") + location.name, refinery.locations_location_path(location)) %> 
+          <div class="description"><%=raw truncate(location.description, :length => 70) %></div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
+
+
+<%= render :partial => '/refinery/draft_page_message' unless @post.nil? or @post.live? -%>
+
+ 
+
+
+
+

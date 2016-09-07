@@ -1,0 +1,30 @@
+nl:
+  refinery:
+    plugins:
+      accommodations:
+        title: Accommodations
+    accommodations:
+      admin:
+        accommodations:
+          actions:
+            create_new: Maak een nieuwe Accommodation
+            reorder: Wijzig de volgorde van de Accommodations
+            reorder_done: Klaar met het wijzingen van de volgorde van de Accommodations
+          records:
+            title: Accommodations
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Accommodations. Druk op 'Maak een nieuwe Accommodation' om de eerste aan te maken.
+          accommodation:
+            view_live_html: Bekijk deze accommodation op de website <br/><em>(opent een nieuw venster)</em>
+            edit: Bewerk deze accommodation
+            delete: Verwijder deze accommodation voor eeuwig
+      accommodations:
+        show:
+          other: Andere Accommodations
+  activerecord:
+    attributes:
+      'refinery/accommodations/accommodation':
+        name: Name
+        cover_image: Cover Image
+        rating: Rating
+        description: Description

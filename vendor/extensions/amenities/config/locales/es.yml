@@ -1,0 +1,29 @@
+es:
+  refinery:
+    plugins:
+      amenities:
+        title: Amenities
+#        article: masculino/femenino
+    amenities:
+      admin:
+        amenities:
+          actions:
+            create_new: Crear nuevo amenity
+            reorder: Reordenar amenities
+            reorder_done: Reordenación de amenities completada
+          records:
+            title: Amenities
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay amenities todavía. Pulsa en "Crear nuevo Amenity" para crear tu primer amenity.
+          amenity:
+            view_live_html: Ver este amenity como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este amenity
+            delete: Borrar este amenity para siempre
+      amenities:
+        show:
+          other: Otros amenities
+  activerecord:
+    attributes:
+      'refinery/amenities/amenity':
+        name: Name
+        image: Image

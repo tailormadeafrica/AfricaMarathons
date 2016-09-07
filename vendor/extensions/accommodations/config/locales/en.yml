@@ -1,0 +1,30 @@
+en:
+  refinery:
+    plugins:
+      accommodations:
+        title: Accommodations
+    accommodations:
+      admin:
+        accommodations:
+          actions:
+            create_new: Add New Accommodation
+            reorder: Reorder Accommodations
+            reorder_done: Done Reordering Accommodations
+          records:
+            title: Accommodations
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Accommodations yet. Click "Add New Accommodation" to add your first accommodation.
+          accommodation:
+            view_live_html: View this accommodation live <br/><em>(opens in a new window)</em>
+            edit: Edit this accommodation
+            delete: Remove this accommodation forever
+      accommodations:
+        show:
+          other: Other Accommodations
+  activerecord:
+    attributes:
+      'refinery/accommodations/accommodation':
+        name: Name
+        cover_image: Cover Image
+        rating: Rating
+        description: Description

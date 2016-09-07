@@ -1,0 +1,30 @@
+nl:
+  refinery:
+    plugins:
+      activities:
+        title: Activities
+    activities:
+      admin:
+        activities:
+          actions:
+            create_new: Maak een nieuwe Activity
+            reorder: Wijzig de volgorde van de Activities
+            reorder_done: Klaar met het wijzingen van de volgorde van de Activities
+          records:
+            title: Activities
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Activities. Druk op 'Maak een nieuwe Activity' om de eerste aan te maken.
+          activity:
+            view_live_html: Bekijk deze activity op de website <br/><em>(opent een nieuw venster)</em>
+            edit: Bewerk deze activity
+            delete: Verwijder deze activity voor eeuwig
+      activities:
+        show:
+          other: Andere Activities
+  activerecord:
+    attributes:
+      'refinery/activities/activity':
+        name: Name
+        cover_image: Cover Image
+        description: Description
+        rating: Rating

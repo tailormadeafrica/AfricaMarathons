@@ -1,0 +1,21 @@
+<% if home_page? %>
+  <div class="col-xs-12 col-sm-6 col-md-3">
+    <%= link_to pod.url, :class=>"home-pod" do %>
+      <%= image_fu pod.image, "262x242#c", :class=>"img-responsive" %>
+      <div class="home-pod-text">
+        <h3><%= pod.name %></h3>
+        <hr>
+        <%= raw pod.body %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="side-pod content-pod">
+    <% if pod.url.present? and pod.name.present? %>
+      <h2><%= link_to(pod.name, pod.url, :class => 'title') %></h2>
+    <% else %>
+      <h2><div class="title"><%= pod.name %></div></h2>
+    <% end %>
+    <%= content_tag('div', raw(pod.body), :class => 'body') if pod.body.present? %>
+  </div>
+<% end %>

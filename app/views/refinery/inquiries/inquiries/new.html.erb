@@ -1,0 +1,20 @@
+
+<% content_for :body_content_left do %>
+  <!-- <div class='inquiries'>
+    <%= simple_form_for [refinery, :inquiries, @inquiry], :html => {:class => 'form-horizontal'} do |f| %>
+      <%= f.input :name, label: false, :placeholder => "Name & Surname", :input_html => { :class => 'form-control full_input' } %>
+    <%= f.input :email, label: false, :placeholder => "Email Address", :input_html => { :class => 'form-control full_input' }%>
+    <%= f.input :phone, label: false, :placeholder => "Contact Number", :input_html => { :class => 'form-control full_input' } %>
+    <%= f.input :message, label: false, :placeholder => "Message", :input_html => {:rows => 8, :class => 'form-control full_input' } %>
+      
+      <div class="form-group">
+        <div class="col-xs-6">
+        <%= f.button :submit, :class => 'btn btn-custom' %>
+        </div>
+      </div>
+    <% end %>
+  </div> -->
+<% end %>
+<%= render "/refinery/content_page", :hide_sections => :body_content_title %>
+
+

@@ -1,0 +1,175 @@
+<% if @accommodation.present? %>
+  <div class="master-slider ms-skin-default" id="masterslider2">
+    <% @accommodation.gallery.items.reorder('position ASC').each do |banner| %>
+    <a href="#banner-overlay" class="lodge_btn"><div class="banner-overlay" id="banner-overlay"><img class="img-responsive" src="/assets/banner-overlay-scroll.png"></div></a>
+      <div class="ms-slide slide-1" data-delay="2">
+        <h1 class="accommodation-name"><%= raw @accommodation.name %></h1>
+        <div class="overlay"></div>
+        <%= image_fu(banner.image, "1920x935#c") %>
+        <div class="ms-layer banner-text" data-type="text" data-delay="750" data-duration="2000" data-ease="easeOutExpo" data-resize="false">
+        </div>
+        
+      </div>
+    <% end %>
+  </div>
+  <div class="accommodation">
+    <div class="container">
+      <div class="accommodation-container">
+        <div class="row">
+          <div class="col-xs-12">
+            <%= raw @accommodation.description %>
+
+            <% if @accommodation.low_rate.present? and @accommodation.mid_rate and @accommodation.high_rate %>
+              <div class="rates">
+                <h2 class="amenities">Prices & Seasons</h2>
+                <div class="monthbar">
+                  <div class="month <%= @accommodation.jan.downcase %>">JAN</div>
+                  <div class="month <%= @accommodation.feb.downcase %>">FEB</div>
+                  <div class="month <%= @accommodation.marc.downcase %>">MAR</div>
+                  <div class="month <%= @accommodation.apr.downcase %>">APR</div>
+                  <div class="month <%= @accommodation.may.downcase %>">MAY</div>
+                  <div class="month <%= @accommodation.jun.downcase %>">JUN</div>
+                  <div class="month <%= @accommodation.jul.downcase %>">JUL</div>
+                  <div class="month <%= @accommodation.aug.downcase %>">AUG</div>
+                  <div class="month <%= @accommodation.sept.downcase %>">SEP</div>
+                  <div class="month <%= @accommodation.oct.downcase %>">OCT</div>
+                  <div class="month <%= @accommodation.nov.downcase %>">NOV</div>
+                  <div class="month <%= @accommodation.dec.downcase %>">DEC</div>
+                  <div class="clear"></div>
+                </div>
+                <div class="prices">
+                  <div class="price-low">
+                    <img src="https://s31.postimg.org/5n3znglln/Web3_01.png">
+                    $<%= @accommodation.low_rate %><span>pppn</span>
+                  </div>
+                  <div class="price-mid">
+                    <img src="https://s32.postimg.org/ek6alrzyd/Web2_01.png">
+                    $<%= @accommodation.mid_rate %><span>pppn</span>
+                  </div>
+                  <div class="price-high">
+                    <img src="https://s32.postimg.org/wo5jcwk2t/Web1_01_01_01.png">
+                    $<%= @accommodation.high_rate %><span>pppn</span>
+                  </div>
+                  <div class="price-closed">
+                  <img src="https://s32.postimg.org/80isxqjj9/Web4_01.png">
+                  Closed
+                  </div>
+                </div>
+              </div>
+              <div class="clear"></div>
+            <% end %>
+
+          </div>
+          <div class="col-xs-12">
+            <% if @accommodation.amenities.present? %>
+              <h2 class="amenities">Facilities</h2>
+              <ul class="amenities">
+                <% @accommodation.amenities.uniq.each do |amenity| %>
+                  <% if amenity.image.present? %>
+                    <li>
+                      <%= image_fu amenity.image, "60x60#c", :title => amenity.name, :class => "img-responsive", :data =>{:placement => "bottom", :toggle => "tooltip"}  %>
+                    </li>
+                  <% end %>
+                <% end %>
+              </ul>
+            <% end %>
+            <% if @accommodation.activities.present? %>
+                <h2 class="activities">Activities</h2>
+                <ul class="amenities">
+                  <% @accommodation.activities.uniq.each do |activity| %>
+                    <% if activity.cover_image.present? %>
+                      <li>
+                        <%= image_fu activity.cover_image, "60x60#c", :title => activity.name, :class => "img-responsive", :data =>{:placement => "bottom", :toggle => "tooltip"}  %>
+                      </li>
+                    <% end %>
+                  <% end %>
+                </ul>
+            <% end %>
+
+
+          <a href="#camps">Back to Camp Selection</a>
+          </div>
+          <div class="col-xs-12">
+            <a type="button" class="btn btn-default btn-custom" data-toggle="modal" data-target="#myModal">Start Your Journey</a>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <div class="">
+                          <h1><%= copywriting('Contact title', {:phrase_type => 'string', :scope => 'Footer', :default => 'Let us tailor make your next journey' }) %></h1>
+                          <p><%= copywriting('Contact Text', {:phrase_type => 'text', :scope => 'Footer', :default => 'Whether you are a seasoned Africa traveller or going to Africa for the very first time, we would love to speak to you. Our first aim is to get to know you, what interests you have and to then match these with our tailormade collection of experiences, camps and lodges. It is always best to talk this over and get the ball rolling from there, so please do pick up the phone for an informal chat with us. We look forward to speaking with you and tailor making your next journey.' }) %></p>
+                        </div>
+                        <div class="contact-form">
+                          <h2>Fill in the form below and we'll get back to you asap</h2>
+                          <% @inquiry ||= ::Refinery::Inquiries::Inquiry.new %>
+                          <%= simple_form_for [refinery, :inquiries, @inquiry], :html => {:class => 'form-vertical'} do |f| %>
+                          <div class="row">
+                            <div class="col-xs-12 col-sm-6">
+                              <%= f.input :name, :wrapper => :bootstrap_12, :input_html => { :class => 'form-control' } %>
+                              <%= f.input :email, :wrapper => :bootstrap_12, :input_html => { :class => 'form-control' }%>
+                              <%= f.input :phone, :wrapper => :bootstrap_12, :input_html => { :class => 'form-control' } %>
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                              <%= f.input :message, :wrapper => :bootstrap_12,:input_html  => {:rows=>6, :class => 'form-control' } %>
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                              <img src="/assets/captcha.png" class="img-responsive captcha">
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                              <%= f.input :captcha, :wrapper => :bootstrap_12, :input_html => { :class => 'form-control' } %>
+                            </div>
+                            <div class="col-xs-12">
+                              <%= f.submit 'Submit', :class=>"btn btn-default btn-custom", :data => {:disable_with => "Saving..."} %>
+                            </div>
+                          </div>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <%#= link_to 'Start Your Journey', '#contact', :class=>"btn btn-default btn-custom" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<script type="application/javascript">
+
+  $(function() {
+    $('.contact_btn').click(function() {
+      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+        if (target.length) {
+          $('html,body').animate({
+            scrollTop: target.offset().top
+          }, 1000);
+          return false;
+        }
+      }
+    });
+  });
+
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  });
+
+  $(document).on('click', '.lodge_btn',function(e) {
+    e.preventDefault();
+    $('html, body').animate({
+      scrollTop: $( $.attr(this, 'href') ).offset().top
+    }, 500);
+  });
+
+</script>
+

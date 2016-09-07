@@ -1,0 +1,23 @@
+<% @inquiry ||= ::Refinery::Inquiries::Inquiry.new %>
+<div class="side-pod inquiry-pod">
+  
+    <h2>Contact Form</h2>
+    <%= simple_form_for [refinery, :inquiries, @inquiry], :html => {:class => 'form-vertical'} do |f| %>
+
+      <%= f.input :name, :label => false, :placeholder => "Name"  %>
+      <%= f.input :email, :label => false, :placeholder => "Email" %>
+      <%= f.input :phone, :label => false, :placeholder => "Phone" %>
+
+      <%= f.input :message ,:input_html  => {:rows=>6}, :label => false, :placeholder => "Message" %>
+      <!--<div class="control">-->
+        <!--<img src="/assets/captcha.jpg">-->
+      <!--</div>-->
+
+      <!--<div class="control">-->
+        <!--<%#= f.input :human_answer, :label => false %>-->
+      <!--</div>-->
+      <%= f.button :submit, :class => 'btn btn-custom', :label => false %>
+    <% end %>
+
+</div>
+

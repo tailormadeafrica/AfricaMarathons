@@ -1,0 +1,46 @@
+<aside id="comments">
+  <h2><%= t('title', :scope => 'refinery.blog.posts.show.comments') %></h2>
+  <% if (comments = @post.comments.approved).any? %>
+    <%= render :partial => "comment", :collection => comments %>
+  <% else %>
+    <p>
+      <%= t('none', :scope => 'refinery.blog.shared.comments') %>.
+    </p>
+  <% end %>
+
+  <% flash.each do |key, value| %>
+    <div id='flash' class="flash flash_<%= key %>">
+      <%= value %>
+    </div>
+  <% end %>
+
+  <h2><%= t('add', :scope => 'refinery.blog.posts.show.comments') %></h2>
+  <%= form_for [refinery, :blog, @comment] do |f| %>
+    <%= render :partial => "/refinery/admin/error_messages",
+               :locals => {
+                 :object => f.object,
+                 :include_object_name => true
+               } %>
+    <div class='field'>
+      <%= f.text_field :name, :label => false, :placeholder => "Name"  %>
+    </div>
+    <div class='field'>
+      <%= f.email_field :email, :label => false, :placeholder => "Email"  %>
+    </div>
+    <div class='field message_field'>
+      <%= f.text_area :message, :rows => 2, :label => false, :placeholder => "Message"  %>
+    </div>
+    <div class="captcha"></div>
+
+    <div class='field'>
+      <%= f.text_field :captcha, :label => false, :placeholder => "Retype Captcha"  %>
+    </div>
+    <div class='field form-actions'>
+      <%= f.submit t('submit', :scope => 'refinery.blog.posts.show') %>
+    </div>
+  <% end %>
+</aside>
+
+
+
+

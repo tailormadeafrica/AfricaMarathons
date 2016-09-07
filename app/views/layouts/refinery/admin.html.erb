@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<%= render '/refinery/html_tag' %>
+  <% content_for :meta, "<meta refinerycms='#{Refinery.version}' />".html_safe %>
+  <%= render 'refinery/admin/head' %>
+  <body class="<%= action_name %> <%= I18n.locale %>">
+    <%= render '/refinery/admin/site_bar' %>
+    <div id='tooltip_container'></div>
+    <header id="header">
+      <%= render 'refinery/admin/menu' %>
+    </header>
+    <div id="page_container">
+      <div id="page">
+        <div id="content" class="clearfix">
+          <div id="flash_container">
+            <%= render '/refinery/no_script' %>
+            <%= render '/refinery/message' %>
+          </div>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="sidr">
+      <!-- Your content -->
+      <ul>
+         <% ::Refinery::Plugins.active.in_menu.each do |plugin| -%>
+          <li><%= link_to plugin.title, refinery.url_for(plugin.url),
+                        :class => ("active" if plugin.highlighted?(params)),
+                        :id => "plugin_#{plugin.name}" %></li>
+          <% end -%>
+       </ul>
+    </div>
+
+    <script>
+      $(document).ready(function() {
+        $('#simple-menu').sidr();
+      });
+    </script>
+
+  </body>
+</html>

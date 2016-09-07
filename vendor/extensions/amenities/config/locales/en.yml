@@ -1,0 +1,28 @@
+en:
+  refinery:
+    plugins:
+      amenities:
+        title: Amenities
+    amenities:
+      admin:
+        amenities:
+          actions:
+            create_new: Add New Amenity
+            reorder: Reorder Amenities
+            reorder_done: Done Reordering Amenities
+          records:
+            title: Amenities
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Amenities yet. Click "Add New Amenity" to add your first amenity.
+          amenity:
+            view_live_html: View this amenity live <br/><em>(opens in a new window)</em>
+            edit: Edit this amenity
+            delete: Remove this amenity forever
+      amenities:
+        show:
+          other: Other Amenities
+  activerecord:
+    attributes:
+      'refinery/amenities/amenity':
+        name: Name
+        image: Image

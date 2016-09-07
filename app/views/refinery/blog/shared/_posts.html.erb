@@ -1,0 +1,23 @@
+
+<% if @posts.many? %>
+<div class="blog_rhs">
+  <h2><%= t('.other') %></h2>
+  <ul id="blog_posts">
+    <% @posts.each do |blog_post| %>
+      <li class='clearfix'>
+          <%= link_to(image_fu(blog_post.image, "105x80#c", :class=>"hidden-sm") + blog_post.title, refinery.blog_post_path(blog_post)) %> 
+      <div class="description"><%=raw truncate(blog_post.body, :length => 70) %></div>
+      </li>
+    <% end %>
+  </ul>
+  </div>
+<% end %>
+
+
+
+
+
+
+
+
+

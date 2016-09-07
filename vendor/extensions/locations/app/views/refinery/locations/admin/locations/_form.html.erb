@@ -1,0 +1,115 @@
+<%= form_for [refinery, :locations_admin, @location] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @location,
+              :include_object_name => true %>
+
+  <%= hidden_field_tag 'location[activity_ids][]' %>
+  <%= hidden_field_tag 'location[accommodation_ids][]' %>
+  
+  <div class='field'>
+    <%= f.label :name -%>
+    <%= f.text_field :name, :class => 'larger widest'  -%>
+
+  </div>
+
+  <div class='field'>
+    <%= f.label :sub_name -%>
+    <%= f.text_field :sub_name, :class => 'larger widest'  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :cover_image -%>
+    <%= render '/refinery/admin/image_picker',
+               :f => f,
+               :field => :cover_image_id,
+               :image => @location.cover_image,
+               :toggle_image_display => false %>
+
+  </div>
+
+  <div class='field'>
+    <%= f.label :flag_image -%>
+    <%= render '/refinery/admin/image_picker',
+               :f => f,
+               :field => :flag_image_id,
+               :image => @location.flag_image,
+               :toggle_image_display => false %>
+
+  </div>
+  
+  <div class='field'>
+    <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
+      <ul id='page_parts'>
+        <% [:description, :side_body].each_with_index do |part, part_index| %>
+          <li class='ui-state-default<%= ' ui-state-active' if part_index == 0 %>'>
+            <%= link_to t("#{part}", :scope => "activerecord.attributes.refinery/locations/location", :default => part.to_s.titleize), "##{part}" %>
+          </li>
+        <% end %>
+      </ul>
+      <div id='page_part_editors'>
+        <% [:description, :side_body].each do |part| %>
+          <div class='page_part' id='<%= part %>'>
+            <%= f.text_area part, :rows => 20, :class => 'wymeditor widest' -%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class='field'>
+    <%= f.label :latitude -%>
+    <%= f.text_field :latitude  -%>
+
+  </div>
+
+  <div class='field'>
+    <%= f.label :longitude -%>
+    <%= f.text_field :longitude  -%>
+
+  </div>
+
+  <div class='field'>
+    <%= f.label :gallery_id, 'Gallery' -%>
+    <%= f.collection_select :gallery_id, ::Refinery::Portfolio::Gallery.order(:title), :id , :title, {:prompt => "-- Please select when relevant --"}, {} -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :parent_id -%>
+    <%= f.collection_select :parent_id, ::Refinery::Locations::Location.where("depth <= 1").order(:name), :id, :name, {:prompt => "-- Please Select --"}  -%>
+
+  </div>
+
+  <div class="field">
+    <%= f.label :activities %>
+    <% ::Refinery::Activities::Activity.all.each do |activity| %>
+      <div>
+        <%= check_box_tag "location[activity_ids][]", activity.id, @location.activities.include?(activity) %>
+        <%= activity.name %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :accommodations %>
+    <% ::Refinery::Accommodations::Accommodation.all.each do |accommodation| %>
+      <div>
+        <%= check_box_tag "location[accommodation_ids][]", accommodation.id, @location.accommodations.include?(accommodation) %>
+        <%= accommodation.name %>
+      </div>
+    <% end %>
+  </div>
+  
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.locations.admin.locations.location'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @location.name) %>
+<% end -%>
+<% content_for :javascripts do %>
+  <script>
+    $(document).ready(function(){
+      page_options.init(false, '', '');
+    });
+  </script>
+<% end %>

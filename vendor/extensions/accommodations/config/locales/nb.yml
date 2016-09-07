@@ -1,0 +1,30 @@
+nb:
+  refinery:
+    plugins:
+      accommodations:
+        title: Accommodations
+    accommodations:
+      admin:
+        accommodations:
+          actions:
+            create_new: Lag en ny Accommodation
+            reorder: Endre rekkefølgen på Accommodations
+            reorder_done: Ferdig å endre rekkefølgen Accommodations
+          records:
+            title: Accommodations
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Accommodations enda. Klikk på "Lag en ny Accommodation" for å legge til din første accommodation.
+          accommodation:
+            view_live_html: Vis hvordan denne accommodation ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            edit: Rediger denne accommodation
+            delete: Fjern denne accommodation permanent
+      accommodations:
+        show:
+          other: Andre Accommodations
+  activerecord:
+    attributes:
+      'refinery/accommodations/accommodation':
+        name: Name
+        cover_image: Cover Image
+        rating: Rating
+        description: Description

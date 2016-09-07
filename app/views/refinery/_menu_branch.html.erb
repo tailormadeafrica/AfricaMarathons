@@ -1,0 +1,44 @@
+<%
+  if !!local_assigns[:apply_css] and (classes = menu_branch_css(local_assigns)).any?
+    css = "class='#{classes.join(' ')}'".html_safe
+  end
+-%>
+<li<%= ['', css].compact.join(' ').gsub(/\ *$/, '').html_safe %> class="parent">
+
+  <% if menu_branch.url.include? '/locations' %>
+    <h2><span  class="location_btn">Locations</span></h2>
+    <% @menu_locations = Refinery::Locations::Location.order("position ASC").where('parent_id IS null') %>
+    <% if @menu_locations.present? %>
+      <ul class="location_nav">
+        <% @menu_locations.each do |location| %>
+          <li>
+            <%= link_to refinery.locations_location_path(location) do %>
+            <%= image_fu location.flag_image, '20x20#c', :class=>"img-circle" %>
+            <span><%= location.name %></span>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% elsif menu_branch.url.include? '/contact' %>
+    <h2><%= link_to(menu_branch.title, '#contact', class: 'contact_btn') -%></h2>
+  <% else %>
+    <h2><%= link_to(menu_branch.title, refinery.url_for(menu_branch.url)) -%></h2>
+  <% end %>
+
+  <% if ( (children = menu_branch.children unless hide_children).present? &&
+          (!local_assigns[:menu_levels] || menu_branch.ancestors.length < local_assigns[:menu_levels]) ) -%>
+    <ul class='clearfix'>
+    
+      <%= render :partial => '/refinery/menu_branch', :collection => children,
+                 :locals => {
+                   :apply_css => local_assigns[:apply_css],
+                   :hide_children => !!hide_children,
+                   :menu_levels => local_assigns[:menu_levels]
+                 } -%>
+    </ul>
+  <% end -%>
+</li>
+
+
+

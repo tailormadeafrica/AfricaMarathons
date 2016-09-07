@@ -1,0 +1,30 @@
+fr:
+  refinery:
+    plugins:
+      activities:
+        title: Activities
+    activities:
+      admin:
+        activities:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Activity
+            reorder: Réordonner les Activities
+            reorder_done: Fin de réordonnancement des Activities
+          records:
+            title: Activities
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: 'Il n''y a actuellement aucun(e) Activity. Cliquer sur "Créer un(e) nouve(au/l/lle) Activity" pour créer votre premi(er/ère) activity.'
+          activity:
+            view_live_html: Voir ce(t/tte) activity <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) activity
+            delete: Supprimer définitivement ce(t/tte) activity
+      activities:
+        show:
+          other: Autres Activities
+  activerecord:
+    attributes:
+      'refinery/activities/activity':
+        name: Name
+        cover_image: Cover Image
+        description: Description
+        rating: Rating

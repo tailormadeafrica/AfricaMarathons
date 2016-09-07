@@ -1,0 +1,24 @@
+<% if post.live? %>
+  <article class="blog_post" id="<%= dom_id(post) %>">
+  <div class="col-xs-6 col-sm-6 col-md-4">
+    <div class="blog_post_pod">
+
+      <%= link_to(image_fu(post.image, "360x280#c", :class=>"img-responsive"), refinery.blog_post_path(post)) %>
+      <div class="banner-arrow"><img class="img-responsive" src="/assets/arrow.png"></div>
+      <div class="content">
+        <h2><%= link_to post.title, refinery.blog_post_path(post) %></h2>
+        <div class="date"><%= post.published_at.strftime("%d %B %Y") %></div>
+        <% if blog_post_teaser_enabled? %>
+          <%= blog_post_teaser(post) %>
+        <% else %>
+          <%= post.body.html_safe %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
+  </article>
+<% end %>
+
+

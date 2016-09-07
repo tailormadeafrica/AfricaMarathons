@@ -1,0 +1,56 @@
+<%= t('.greeting') %>,<br/>
+<br/>
+<%= t('.you_recieved_new_booking') %><br/>
+<br/>
+<%= t('.booking_starts') %><br/>
+<br/>
+<%= t('.full_name', :default => t('activerecord.attributes.booking.full_name')) %>: <%= @booking.full_name %><br/>
+<%= t('.email', :default => t('activerecord.attributes.booking.email')) %>: <%= @booking.email %><br/>
+<%= t('.telephone', :default => t('activerecord.attributes.booking.telephone')) %>: <%= @booking.telephone %><br/>
+<%= t('.cellphone', :default => t('activerecord.attributes.booking.cellphone')) %>: <%= @booking.cellphone %><br/>
+<%= t('.address', :default => t('activerecord.attributes.booking.address')) %>: 
+<%= @booking.address %>
+<%= t('.dont_get_newsletters', :default => t('activerecord.attributes.booking.dont_get_newsletters')) %>: <%= @booking.dont_get_newsletters %><br/>
+<% if @booking.passports.present? %>
+  <% @booking.passports.each do |passport| %>
+    Title: <%= passport.title %>
+    First Name: <%= passport.first_name %>
+    Surname: <%= passport.surname %>
+    D.o.Birth: <%= passport.date_of_birth %>
+    Passport Number: <%= passport.passport_no %>
+    Issue Date: <%= passport.issue_date %>
+    Expiry Date: <%= passport.expiry_date %>
+    Place of Issue: <%= passport.place_of_issue %>
+    Weight(kgs): <%= passport.weight %>
+    Diet Req: <%= passport.diet_req %><br/>
+  <% end %><br/><br/>
+<% end %>
+<% if @booking.flights.present? %>
+  <% @booking.flights.each do |flight| %>
+    Airline & Flight Number: <%= flight.airline_and_flight_no %>
+    Departure Airport: <%= flight.departure_airport %>
+    Depart Time: <%= flight.departure %>
+    Arrival Airport: <%= flight.arrival_airport %>
+    Arrive Time: <%= flight.arrival %><br/>
+  <% end %><br/><br/>
+<% end %>
+<%= t('.insurance_company', :default => t('activerecord.attributes.booking.insurance_company')) %>: <%= @booking.insurance_company %><br/>
+<%= t('.policy_number', :default => t('activerecord.attributes.booking.policy_number')) %>: <%= @booking.policy_number %><br/>
+<%= t('.emergency_number', :default => t('activerecord.attributes.booking.emergency_number')) %>: <%= @booking.emergency_number %><br/>
+<%= t('.certify_personal_insurance', :default => t('activerecord.attributes.booking.certify_personal_insurance')) %>: <%= @booking.certify_personal_insurance %><br/>
+<%= t('.honeymoon', :default => t('activerecord.attributes.booking.honeymoon')) %>: <%= @booking.honeymoon %><br/>
+<%= t('.birthday', :default => t('activerecord.attributes.booking.birthday')) %>: <%= @booking.birthday %><br/>
+<%= t('.anniversary', :default => t('activerecord.attributes.booking.anniversary')) %>: <%= @booking.anniversary %><br/>
+<%= t('.birthday_who_and_when', :default => t('activerecord.attributes.booking.birthday_who_and_when')) %>: <%= @booking.birthday_who_and_when %><br/>
+<%= t('.anniversary_who_and_where', :default => t('activerecord.attributes.booking.anniversary_who_and_where')) %>: <%= @booking.anniversary_who_and_where %><br/>
+<%= t('.emergency_contacts', :default => t('activerecord.attributes.booking.emergency_contacts')) %>: 
+<%= @booking.emergency_contacts %>
+<%= t('.i_accept', :default => t('activerecord.attributes.booking.i_accept')) %>: <%= @booking.i_accept %><br/>
+<%= t('.i_accept_name', :default => t('activerecord.attributes.booking.i_accept_name')) %>: <%= @booking.i_accept_name %><br/>
+<br/>
+<%= t('.booking_ends') %><br/>
+<br/>
+<%= t('.closing_line') %>,<br/>
+<%= Refinery::Core.site_name %><br/>
+<br/>
+<%= t('.ps_html') %>

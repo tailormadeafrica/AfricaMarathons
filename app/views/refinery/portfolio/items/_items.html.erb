@@ -1,0 +1,7 @@
+<%- if items.present? and items.first.gallery.present? -%>
+  <div id='gallery_images'>
+    <div class="portfolio-isotope">
+      <%= render items %>
+    </div>
+  </div>
+<%- end -%>

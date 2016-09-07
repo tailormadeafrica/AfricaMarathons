@@ -1,0 +1,26 @@
+$(".header-partial").html("<%= j render :partial => '/refinery/header' %>")
+
+$(".accommodation_item").html("");
+$(".accommodation_item").html("<%= j render :partial => 'layouts/accommodation_item' %>");
+
+$('html,body').animate({
+  scrollTop: $('#accommodation_item').offset().top
+}, 1000);
+
+var slider2 = new MasterSlider();
+
+slider2.control('arrows');
+
+slider2.setup('masterslider2' , {
+width:1920,
+height:935,
+space:1,
+layout:'fullwidth',
+loop:true,
+preload:0,
+autoplay:false,
+overPause:false,
+shuffle:false,
+instantStartLayers: true,
+view:"fade"
+});
