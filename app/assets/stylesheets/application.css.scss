@@ -136,7 +136,7 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
       .slide {font-size:12px; letter-spacing:1px; text-transform: uppercase; 
         a {
           img {border-radius:50%;}
-          .name {margin-top:10px;}
+          .name {margin-top:10px; line-height:18px;}
         }
       }
     }
@@ -152,9 +152,10 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
 
 #contact {background:#f4f4f4;}
 
-#people {background: #4799ef url("/assets/bg-people.jpg") bottom center no-repeat; padding:100px 0 70px 0 !important;
+#people {background: #fafafa url("/assets/bg-people.jpg") bottom center no-repeat; padding:100px 0 70px 0 !important;
   .content-container .content {transform:none;
-    h2 {font-size:15px; line-height:24px;}
+    h2 {font-size:15px; line-height:24px; color:#000000;}
+    p {color:#999999;}
   }
 }
 
