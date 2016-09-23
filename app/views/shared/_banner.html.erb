@@ -1,5 +1,5 @@
 <% if @location.present? and @location.gallery.present? and @location.gallery.items.present? %>
-  <div class="master-slider ms-skin-default hidden-xs" id="masterslider">
+  <div class="master-slider ms-skin-default" id="masterslider">
     <% @location.gallery.items.reorder('position ASC').each do |item| %>
     <a href="#welcome"><div class="banner-overlay"><img class="img-responsive" src="/assets/banner-overlay-scroll.png"></div></a>
       <div class="ms-slide slide-1" data-delay="4">
@@ -17,7 +17,7 @@
     <% end %>
   </div>
 <% elsif @accommodation.present? and @accommodation.gallery.present? and @accommodation.gallery.items.present? %>
-  <div class="master-slider ms-skin-default hidden-xs" id="masterslider">
+  <div class="master-slider ms-skin-default" id="masterslider">
     <% @accommodation.gallery.items.reorder('position ASC').each do |item| %>
     <a href="#welcome"><div class="banner-overlay"><img class="img-responsive" src="/assets/banner-overlay-scroll.png"></div></a>
       <div class="ms-slide slide-1" data-delay="4">
@@ -33,7 +33,7 @@
     <% end %>
   </div>
 <% elsif @activity.present? and @activity.gallery.present? and @activity.gallery.items.present? %>
-  <div class="master-slider ms-skin-default hidden-xs" id="masterslider">
+  <div class="master-slider ms-skin-default" id="masterslider">
     <% @activity.gallery.items.reorder('position ASC').each do |item| %>
       <div class="banner-overlay"><img class="img-responsive" src="/assets/banner-overlay.png"></div>
       <div class="ms-slide slide-1" data-delay="4">
@@ -49,7 +49,7 @@
     <% end %>
   </div>
 <% elsif @post.present? and @post.banners.published.present? %>
-  <div class="master-slider ms-skin-default hidden-xs" id="post_masterslider">
+  <div class="master-slider ms-skin-default" id="post_masterslider">
     <% @post.banners.published.reorder('position ASC').each do |banner| %>
       <div class="banner-overlay"><img class="img-responsive" src="/assets/banner-overlay.png"></div>
       <div class="ms-slide slide-1" data-delay="4">
@@ -58,7 +58,7 @@
     <% end %>
   </div>
 <% elsif @page.link_url.present? and @page.link_url == '/blog' and @page.present? and @page.banners.published.present? %>
-  <div class="master-slider ms-skin-default hidden-xs" id="post_masterslider">
+  <div class="master-slider ms-skin-default" id="post_masterslider">
     <% @page.banners.published.reorder('position ASC').each do |banner| %>
             <div class="banner-overlay"><img class="img-responsive" src="/assets/banner-overlay-cream.png"></div>
       <div class="ms-slide slide-1" data-delay="4">
@@ -67,7 +67,7 @@
     <% end %>
   </div>
 <% elsif @page.link_url.present? and @page.link_url == '/bookings/new' and @page.present? and @page.banners.published.present? %>
-  <div class="master-slider ms-skin-default hidden-xs" id="post_masterslider">
+  <div class="master-slider ms-skin-default" id="post_masterslider">
     <% @page.banners.published.reorder('position ASC').each do |banner| %>
       <div class="banner-overlay"><img class="img-responsive" src="/assets/banner-overlay.png"></div>
       <div class="ms-slide slide-1" data-delay="4">
@@ -76,7 +76,7 @@
     <% end %>
   </div>
 <% elsif @page.present? and @page.banners.published.present? %>
-  <div class="master-slider ms-skin-default hidden-xs" id="masterslider">
+  <div class="master-slider ms-skin-default" id="masterslider">
       <% @page.banners.published.reorder('position ASC').each do |banner| %>
         <a href="#welcome"><div class="banner-overlay"><img class="img-responsive" src="/assets/banner-overlay-scroll.png"></div></a>
         <div class="ms-slide slide-1" data-delay="4">
@@ -96,13 +96,13 @@
 <% end %>
 
 
-<div class="banner visible-xs">
-  <% if home_page? %>
+<!-- <div class="banner visible-xs">
+  <#% if home_page? %>
     <img src="/assets/logo.png" class="logo img-responsive">
-  <% else %>
+  <#% else %>
     <div class="banner-text">
-      <h1><%= @page.title if @page.present? %></h1>
+      <h1><#%= @page.title if @page.present? %></h1>
     </div>
-  <% end %>
+  <#% end %>
   <img src="/assets/banner1-mobile.jpg" class="img-responsive">
-</div>
+</div> -->
