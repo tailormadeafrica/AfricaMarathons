@@ -98,7 +98,11 @@
 
 <div class="banner visible-xs">
   <% if home_page? %>
-    <img src="/assets/logo.png" class="logo img-responsive">
+          <div class="banner-text">
+          <h2>AFRICA</h2>
+          <h1>MARATHONS</h1>
+          <h3>RUN AFRICA. FEEL AFRICA. LOVE AFRICA.</h3>
+        </div>
   <% else %>
     <div class="banner-text">
       <h1><%= @page.title if @page.present? %></h1>
