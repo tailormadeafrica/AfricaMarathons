@@ -1,5 +1,5 @@
 <% if @location.present? and @location.gallery.present? and @location.gallery.items.present? %>
-  <div class="master-slider ms-skin-default hidden-xs" id="masterslider">
+  <div class="master-slider ms-skin-default" id="masterslider">
     <% @location.gallery.items.reorder('position ASC').each do |item| %>
     <a href="#welcome"><div class="banner-overlay"><img class="img-responsive" src="/assets/banner-overlay-scroll.png"></div></a>
       <div class="ms-slide slide-1" data-delay="4">
@@ -12,12 +12,12 @@
           <h1><%= raw @location.name %></h1>
           <h3><%= @location.sub_name %></h3>
         </div>
-        <img src="/assets/blank.gif" data-src="/assets/downarrow.png" class="ms-layer arrow" data-resize="false" data-type="image" data-delay="1500" data-duration="9000" data-ease="easeOutExpo" data-resize="false">
+        <img src="/assets/blank.gif" data-src="/assets/downarrow.png" class="ms-layer arrow hidden-xs" data-resize="false" data-type="image" data-delay="1500" data-duration="9000" data-ease="easeOutExpo" data-resize="false">
       </div>
     <% end %>
   </div>
 <% elsif @accommodation.present? and @accommodation.gallery.present? and @accommodation.gallery.items.present? %>
-  <div class="master-slider ms-skin-default hidden-xs" id="masterslider">
+  <div class="master-slider ms-skin-default" id="masterslider">
     <% @accommodation.gallery.items.reorder('position ASC').each do |item| %>
     <a href="#welcome"><div class="banner-overlay"><img class="img-responsive" src="/assets/banner-overlay-scroll.png"></div></a>
       <div class="ms-slide slide-1" data-delay="4">
@@ -28,12 +28,12 @@
           <h1><%= raw @accommodation.name %></h1>
           <h1><%= @accommodation.sub_name %></h1>
         </div>
-        <img src="/assets/blank.gif" data-src="/assets/downarrow.png" class="ms-layer arrow" data-resize="false" data-type="image" data-delay="1500" data-duration="9000" data-ease="easeOutExpo" data-resize="false">
+        <img src="/assets/blank.gif" data-src="/assets/downarrow.png" class="ms-layer arrow hidden-xs" data-resize="false" data-type="image" data-delay="1500" data-duration="9000" data-ease="easeOutExpo" data-resize="false">
       </div>
     <% end %>
   </div>
 <% elsif @activity.present? and @activity.gallery.present? and @activity.gallery.items.present? %>
-  <div class="master-slider ms-skin-default hidden-xs" id="masterslider">
+  <div class="master-slider ms-skin-default" id="masterslider">
     <% @activity.gallery.items.reorder('position ASC').each do |item| %>
       <div class="banner-overlay"><img class="img-responsive" src="/assets/banner-overlay.png"></div>
       <div class="ms-slide slide-1" data-delay="4">
@@ -44,12 +44,12 @@
           <h1><%= raw @activity.name %></h1>
           <h3><%= @activity.sub_name %></h3>
         </div>
-        <img src="/assets/blank.gif" data-src="/assets/downarrow.png" class="ms-layer arrow" data-resize="false" data-type="image" data-delay="1500" data-duration="9000" data-ease="easeOutExpo" data-resize="false">
+        <img src="/assets/blank.gif" data-src="/assets/downarrow.png" class="ms-layer arrow hidden-xs" data-resize="false" data-type="image" data-delay="1500" data-duration="9000" data-ease="easeOutExpo" data-resize="false">
       </div>
     <% end %>
   </div>
 <% elsif @post.present? and @post.banners.published.present? %>
-  <div class="master-slider ms-skin-default hidden-xs" id="post_masterslider">
+  <div class="master-slider ms-skin-default" id="post_masterslider">
     <% @post.banners.published.reorder('position ASC').each do |banner| %>
       <div class="banner-overlay"><img class="img-responsive" src="/assets/banner-overlay.png"></div>
       <div class="ms-slide slide-1" data-delay="4">
@@ -58,7 +58,7 @@
     <% end %>
   </div>
 <% elsif @page.link_url.present? and @page.link_url == '/blog' and @page.present? and @page.banners.published.present? %>
-  <div class="master-slider ms-skin-default hidden-xs" id="post_masterslider">
+  <div class="master-slider ms-skin-default" id="post_masterslider">
     <% @page.banners.published.reorder('position ASC').each do |banner| %>
             <div class="banner-overlay"><img class="img-responsive" src="/assets/banner-overlay-cream.png"></div>
       <div class="ms-slide slide-1" data-delay="4">
@@ -67,7 +67,7 @@
     <% end %>
   </div>
 <% elsif @page.link_url.present? and @page.link_url == '/bookings/new' and @page.present? and @page.banners.published.present? %>
-  <div class="master-slider ms-skin-default hidden-xs" id="post_masterslider">
+  <div class="master-slider ms-skin-default" id="post_masterslider">
     <% @page.banners.published.reorder('position ASC').each do |banner| %>
       <div class="banner-overlay"><img class="img-responsive" src="/assets/banner-overlay.png"></div>
       <div class="ms-slide slide-1" data-delay="4">
@@ -76,20 +76,20 @@
     <% end %>
   </div>
 <% elsif @page.present? and @page.banners.published.present? %>
-  <div class="master-slider ms-skin-default hidden-xs" id="masterslider">
+  <div class="master-slider ms-skin-default" id="masterslider">
       <% @page.banners.published.reorder('position ASC').each do |banner| %>
         <a href="#welcome"><div class="banner-overlay"><img class="img-responsive" src="/assets/banner-overlay-scroll.png"></div></a>
         <div class="ms-slide slide-1" data-delay="4">
           <div class="overlay"></div>
           <%= image_fu(banner.image, "1920x935#c") %>
           <% if home_page? %>
-            <img src="/assets/blank.gif" data-src="/assets/logo.png" class="ms-layer logo" data-type="image" data-delay="750" data-duration="2000" data-ease="easeOutExpo" data-resize="false">
+            <img src="/assets/blank.gif" data-src="/assets/logo.png" class="ms-layer logo hidden-xs" data-type="image" data-delay="750" data-duration="2000" data-ease="easeOutExpo" data-resize="false">
           <% elsif banner.description.present? %>
             <div class="ms-layer banner-text" data-type="text" data-delay="750" data-duration="2000" data-ease="easeOutExpo" data-resize="false">
               <%= raw banner.description %>
             </div>
           <% end %>
-          <img src="/assets/blank.gif" data-src="/assets/downarrow.png" class="ms-layer arrow" data-resize="false" data-type="image" data-delay="1500" data-duration="9000" data-ease="easeOutExpo" data-resize="false">
+          <img src="/assets/blank.gif" data-src="/assets/downarrow.png" class="ms-layer arrow hidden-xs" data-resize="false" data-type="image" data-delay="1500" data-duration="9000" data-ease="easeOutExpo" data-resize="false">
         </div>
       <% end %>
   </div>
@@ -104,7 +104,6 @@
       <h1><%= @page.title if @page.present? %></h1>
     </div>
   <% end %>
-  <img src="/assets/banner1-mobile.jpg" class="img-responsive">
 </div>
 
 <% items = request.fullpath.downcase.split('/') %>
