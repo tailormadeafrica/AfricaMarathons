@@ -8,6 +8,16 @@
   <span>MENU</span>
 </div>
 
+<% face = copywriting('Facebook', {:phrase_type => 'string', :scope => 'Social', :default => '#' }) %>
+<% twit = copywriting('Twitter', {:phrase_type => 'string', :scope => 'Social', :default => '#' }) %>
+<% ins = copywriting('Instagram', {:phrase_type => 'string', :scope => 'Social', :default => '#' }) %>
+<div class="social_links">
+  <div><a href="<%= face %>" target="_blank">Facebook</a></div>
+  <div><a href="<%= twit %>" target="_blank">Twitter</a></div>
+  <div><a href="<%= ins %>" target="_blank">Instagram</a></div>
+</div>
+
+
 <nav class="nav-hide">
   <ul>
     <img src="/assets/logo-small.png" >
