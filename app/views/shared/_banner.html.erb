@@ -106,3 +106,12 @@
   <% end %>
   <img src="/assets/banner1-mobile.jpg" class="img-responsive">
 </div>
+
+<% items = request.fullpath.downcase.split('/') %>
+<% items = items.reject { |c| c.empty? } %>
+<% if items.present? %>
+  <%= link_to "Home", "/" %>
+  <% items.each do |link| %>
+    &nbsp;&nbsp;>&nbsp;&nbsp;<%= link_to strip_tags(link.gsub("-", " ")), "/" + link %>
+  <% end %>
+<% end %>
