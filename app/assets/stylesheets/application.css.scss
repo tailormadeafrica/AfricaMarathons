@@ -102,7 +102,7 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
   .banner-overlay::after {left: auto; right: -100%;}
   .logo,.banner-text {@include vertical-align();
     h2 {@include slider_font(); font-size:48px; margin:0; letter-spacing:5px;}
-    h1 {@include slider_font(); font-size:100px; margin:0; letter-spacing:13px; line-height:normal;
+    h1 {@include slider_font(); font-size:88px; margin:0; letter-spacing:13px; line-height:normal;
       span {@include slider_font(); font-size:48px; margin:20px; letter-spacing:5px; display:block; line-height:0;}
     }
     h3 {@include header_font(300); font-size:14px; color:#ffffff; letter-spacing:0;}
