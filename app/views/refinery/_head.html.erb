@@ -6,6 +6,13 @@
   <%= raw(%(<meta name="keywords" content="#{@meta.meta_keywords}">)) if @meta.meta_keywords.present? -%>
   <%= raw(%(<link rel="canonical" content="#{@canonical}" />)) if @canonical.present? -%>
   <%= csrf_meta_tags if Refinery::Core.authenticity_token_on_frontend -%>
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#222222">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#222222">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <%= yield :meta %>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,5 +32,23 @@
 
   <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
   <script type="text/javascript">stLight.options({publisher: "cef80a77-07e3-4913-804d-0d3aef60ac1f", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+<script>
+
+function checkLandscape() {
+  if (($( window ).height() > $( document ).width()) && ($( document ).width() < 768)) {
+    $("#mobile-port").show();
+  } else {
+    $("#mobile-port").hide();
+  }
+}
+
+$( document ).ready(function() {
+  checkLandscape();
+  $( window ).resize(function() { checkLandscape(); });
+});
+
+</script>
 
 </head>

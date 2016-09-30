@@ -89,6 +89,10 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
   .fa {font-size:18px;}
 }
 
+.social_links {position: fixed; z-index: 5; right: 18px; top: 100px;
+    img {margin-bottom:15px;}
+}
+
 #masterslider,#post_masterslider {
   .overlay {position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: 5; background: url("../assets/overlay.png") repeat;}
   .banner-overlay {position:absolute; z-index:10;  bottom:0; left: 50%; margin-left: -960px;
@@ -108,6 +112,10 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
 }
 .ms-skin-default .ms-nav-prev {left:40px!important;}
 .ms-skin-default .ms-nav-next {right:40px!important}
+
+.breadcrumb { padding: 0; margin-bottom: 0; list-style: none; border-radius: 0; font-size: 11px; text-transform: uppercase; position: absolute; width: 100%; margin-top: 35px; background:transparent;color: #404040;
+    a {color: #404040;}
+}
 
 #welcome, #contact {padding:50px 0 70px 0;
   .contact-form span {width: 740px; margin: 0 auto!important; background-color: #FFFFFF; border: 1px solid red; padding: 0; display: block; margin: 15px; color: red; line-height:18px; padding:5px;}
@@ -300,11 +308,13 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
 /*** xs ***/
 
 @media (max-width:767px) {
+  .breadcrumb {margin-top: 10px;}
+  .social_links {right: 10px;}
   #masterslider .banner-text h2 {font-size:17px!important; letter-spacing:3px!important;}
   #masterslider .banner-text h1 {font-size:28px!important; letter-spacing:5px!important; line-height:29px!important;}
   h1.accommodation-name {font-size:24px; bottom:30px;}
   table {width: 100%;}
-  .logo {position: absolute; width: 220px; left: 50%; margin-left: -110px; top:50%; margin-top:-200px; }
+  .logo {position: absolute!important; width: 220px; left: 50%; margin-left: -110px; top:50%; margin-top:-200px; }
   .navbar-hamburger {top:10px; right:10px;}
   nav ul {margin-top:50px;}
   nav ul h2 {margin:0!important; padding:5px 0;}
@@ -361,6 +371,7 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
   .accommodation_item .accommodation .accommodation-container .btn-custom {margin:40px 0 50px 0;}
   #welcome form .btn-custom {margin-bottom:30px!important;}
   .rates {width:auto;}
+  .content img.bottom-logo {position:relative; margin:0 auto}
 }
 
 /*** sm ***/
@@ -400,27 +411,6 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
 
 #container { display:block; }
 
-@media only screen and (orientation:portrait){
-  #container {
-    height: 100vw;
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
-  }
-}
-
-@media only screen and (orientation:landscape){
-  #container {
-     -webkit-transform: rotate(0deg);
-     -moz-transform: rotate(0deg);
-     -o-transform: rotate(0deg);
-     -ms-transform: rotate(0deg);
-     transform: rotate(0deg);
-  }
-}
-
 .modal-dialog {width:940px;
   .modal-content {border-radius:0; box-shadow: none;
     .modal-header {border:none;}
@@ -433,6 +423,12 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
 }
 
 body.modal-open {overflow:auto; margin-right:0!important; transform:none!important;}
+body { margin:0px; padding:0px; } 
+
+.bg { width:100%; height:100%; background-size:cover; background-position: center center; background-repeat: no-repeat; position:absolute; }
+
+#mobile-port { position:fixed; top:0px; left:0px; width:100%; height:100%; background:#222; text-align:center; z-index:1000;}
+#mobile-port img { max-width:90%; position:absolute; top:50%; left:5%; transform:translateY(-50%); }
 
 
 .bookings {font-size:13px; line-height:24px;

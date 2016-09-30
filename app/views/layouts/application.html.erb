@@ -3,6 +3,13 @@
   <% site_bar = render('/refinery/site_bar', :head => true) -%>
   <%= render '/refinery/head' %>
   <body id="container">
+
+    <div class="bg"></div>
+
+    <div id="mobile-port">
+      <img src="/assets/landscape.png" />
+    </div>
+    
     <%= site_bar -%>
     <%= render '/refinery/ie6check' if request.env['HTTP_USER_AGENT'] =~ /MSIE/ -%>
 
@@ -50,6 +57,7 @@
     </div>
   </div>
 
+      
     <%= render '/refinery/footer' -%>
 
     <%= render '/refinery/javascripts' %>

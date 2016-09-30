@@ -8,17 +8,34 @@
   <span>MENU</span>
 </div>
 
+<% face = copywriting('Facebook', {:phrase_type => 'string', :scope => 'Social', :default => '#' }) %>
+<% twit = copywriting('Twitter', {:phrase_type => 'string', :scope => 'Social', :default => '#' }) %>
+<% ins = copywriting('Instagram', {:phrase_type => 'string', :scope => 'Social', :default => '#' }) %>
+<div class="social_links">
+  <div><a href="<%= face %>" target="_blank"><img src="/assets/facebook.png"></a></div>
+  <div><a href="<%= twit %>" target="_blank"><img src="/assets/twitter.png"></a></div>
+  <div><a href="<%= ins %>" target="_blank"><img src="/assets/instagram.png"></a></div>
+</div>
+
 <nav class="nav-hide">
   <ul>
     <img src="/assets/logo-small.png" >
     <%= render :partial => "/refinery/menu" %>
-	<div id="sb-search" class="sb-search">
-		<form accept-charset="UTF-8" action="/locations" method="get">
-			<input class="sb-search-input" placeholder="Search..." type="text" value="" name="search" id="search">
-			<input class="sb-search-submit" type="submit" value="">
-			<span class="sb-icon-search"></span>
-		</form>
-	</div>
+  <div id="sb-search" class="sb-search">
+    <form accept-charset="UTF-8" action="/locations" method="get">
+      <input class="sb-search-input" placeholder="Search..." type="text" value="" name="search" id="search">
+      <input class="sb-search-submit" type="submit" value="">
+      <span class="sb-icon-search"></span>
+    </form>
+  </div>
+  <% face = copywriting('Facebook', {:phrase_type => 'string', :scope => 'Social', :default => '#' }) %>
+<% twit = copywriting('Twitter', {:phrase_type => 'string', :scope => 'Social', :default => '#' }) %>
+<% ins = copywriting('Instagram', {:phrase_type => 'string', :scope => 'Social', :default => '#' }) %>
+<div class="social_links">
+  <div><a href="<%= face %>" target="_blank"><img src="/assets/facebook.png"></a></div>
+  <div><a href="<%= twit %>" target="_blank"><img src="/assets/twitter.png"></a></div>
+  <div><a href="<%= ins %>" target="_blank"><img src="/assets/instagram.png"></a></div>
+</div>
   </ul>
 </nav>
 
