@@ -8,7 +8,7 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development, :test do
-  gem 'pg'
+  gem 'pg', '0.17.1'
   # gem 'sqlite3'
 end
 
@@ -104,7 +104,7 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
+  gem 'pg', '0.17.1'
   gem 'puma'
 end
 
