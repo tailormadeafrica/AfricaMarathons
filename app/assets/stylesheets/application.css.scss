@@ -184,6 +184,7 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
 
 #footer {background: url("/assets/bg-footer.jpg") top center no-repeat; height:450px;
   .content-container {height: 450px;}
+  span {display:block; line-height:12px;}
 }
 
 .content-container .content {@include vertical-align(); color:#ffffff;
@@ -305,7 +306,7 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
   }
 }
 
-img.bottom-logo {margin:0 auto;}
+.content img.bottom-logo {margin:40px auto;}
 
 /*** xs ***/
 
