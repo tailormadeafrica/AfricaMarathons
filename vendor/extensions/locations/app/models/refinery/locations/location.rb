@@ -3,6 +3,9 @@ module Refinery
     class Location < Refinery::Core::BaseModel
       self.table_name = 'refinery_locations'
       acts_as_nested_set
+
+      extend FriendlyId
+      friendly_id :name, :use => [:slugged]
     
       acts_as_indexed :fields => [:name, :description]
 
