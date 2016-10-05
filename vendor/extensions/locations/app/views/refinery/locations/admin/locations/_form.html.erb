@@ -41,9 +41,14 @@
   <div class='field'>
     <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
       <ul id='page_parts'>
-        <% [:description, :side_body].each_with_index do |part, part_index| %>
+        <% [:description].each_with_index do |part, part_index| %>
           <li class='ui-state-default<%= ' ui-state-active' if part_index == 0 %>'>
             <%= link_to t("#{part}", :scope => "activerecord.attributes.refinery/locations/location", :default => part.to_s.titleize), "##{part}" %>
+          </li>
+        <% end %>
+        <% [:side_body].each_with_index do |part, part_index| %>
+          <li class='ui-state-default<%= ' ui-state-active' if part_index == 0 %>'>
+            <%= link_to t("Itinerary", :scope => "activerecord.attributes.refinery/locations/location", :default => 'Itinerary'), "##{part}" %>
           </li>
         <% end %>
       </ul>
@@ -55,6 +60,12 @@
         <% end %>
       </div>
     </div>
+
+  </div>
+
+  <div class='field'>
+    <%= f.label :countdown_timer -%>
+    <%= f.datetime_select :countdown_timer  -%>
 
   </div>
 

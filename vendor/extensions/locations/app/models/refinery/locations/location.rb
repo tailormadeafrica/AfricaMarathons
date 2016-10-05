@@ -13,7 +13,7 @@ module Refinery
 
       validates :name, :presence => true, :uniqueness => true
 
-      attr_accessible :name, :flag_image_id, :cover_image_id, :description, :position, :activity_ids, :gallery_id, :longitude, :latitude, :sub_name, :parent_id, :lft, :rgt, :depth, :accommodation_ids, :side_body
+      attr_accessible :name, :flag_image_id, :cover_image_id, :description, :position, :activity_ids, :gallery_id, :longitude, :latitude, :sub_name, :parent_id, :lft, :rgt, :depth, :accommodation_ids, :side_body, :countdown_timer
 
       belongs_to :parent, :class_name => '::Refinery::Locations::Location'
       belongs_to :cover_image, :class_name => '::Refinery::Image'
@@ -29,6 +29,10 @@ module Refinery
       def remove_span
         new_slug = self.slug.gsub("-span-","-").gsub("-span","")
         self.update_column(:slug, new_slug)
+      end
+
+      def itinerary
+        side_body
       end
 
     end

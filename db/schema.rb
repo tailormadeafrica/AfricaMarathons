@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160927065136) do
+ActiveRecord::Schema.define(:version => 20161005071931) do
 
   create_table "flights", :force => true do |t|
     t.string   "airline_and_flight_no"
@@ -301,8 +301,8 @@ ActiveRecord::Schema.define(:version => 20160927065136) do
     t.integer  "cover_image_id"
     t.text     "description"
     t.integer  "position"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.integer  "gallery_id"
     t.string   "latitude"
     t.string   "longitude"
@@ -314,6 +314,7 @@ ActiveRecord::Schema.define(:version => 20160927065136) do
     t.text     "side_body"
     t.integer  "flag_image_id"
     t.string   "slug"
+    t.datetime "countdown_timer"
   end
 
   create_table "refinery_locations_posts", :id => false, :force => true do |t|
