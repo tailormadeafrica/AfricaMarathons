@@ -12,7 +12,7 @@
 development:
    adapter: postgresql
    encoding: unicode
-   database: tailor_made_africa
+   database: african_marathon
    pool: 5
    username: postgres
    password: iaanppdhu
