@@ -73,7 +73,8 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
 .nav-hide {display: none;}
 
 .navbar-hamburger { position: fixed; top: 20px; right: 20px; width: 30px; height: 22px; z-index: 20; cursor: pointer;
-  .bar1, .bar2, .bar3 { width: 100%; height: 3px; margin-bottom: 6px; background-color: #ffffff; transition: all 0.3s ease-in-out;}
+  .bar1, .bar2, .bar3 { width: 100%; height: 3px; margin-bottom: 6px; background-color: #ffffff; transition: all 0.3s ease-in-out;box-shadow: rgba(0,0,0,0.4) 1px 1px 2px;
+}
   span {color:#ffffff; margin-left:-1px; font-size:11px;}
 }
 
@@ -89,7 +90,7 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
   .fa {font-size:18px;}
 }
 
-.social_links {position: fixed; z-index: 5; right: 18px; top: 100px;
+.social_links {position: fixed; z-index: 12; right: 18px; top: 100px;
     img {margin-bottom:15px;}
 }
 
