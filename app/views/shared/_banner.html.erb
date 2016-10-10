@@ -96,13 +96,8 @@
 <% end %>
 
 
-<div class="breadcrumb" style="position: relative; z-index: 100; margin-bottom: -63px;">
-<% items = request.fullpath.downcase.split('/') %>
-<% items = items.reject { |c| c.empty? } %>
-<% if items.present? %>
-  <%= link_to "Home", "/" %>
-  <% items.each do |link| %>
-    &nbsp;&nbsp;>&nbsp;&nbsp;<%= link_to strip_tags(link.gsub("-", " ")), "/" + link %>
-  <% end %>
+<% unless home_page? %>
+  <div class="breadcrumb" style="position: relative; z-index: 100;">
+    <%= breadcrumbs(@page, @location, @post) %>
+  </div>
 <% end %>
-</div>
