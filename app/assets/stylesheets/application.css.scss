@@ -56,16 +56,16 @@ table {width: 65%; margin: 0 auto; border: 1px solid #eeeeee; margin-bottom: 30p
 nav, .navbar-hamburger {-webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;text-align: center;}
 
 nav {position: fixed; z-index: 15; background-color: rgba(0,0,0, 0.85); width: 100%; height: 100%;
-  ul {list-style:none; margin:0; padding:0; vertical-align: middle; display:inline-block; text-align:center; width:auto;
+  ul {list-style:none; margin:0; padding:0; vertical-align: middle; display:inline-block; text-align:center; width:740px;
     li.first {padding-top:25px;}
     li.parent {line-height:0;}
     a, a:hover, a:focus {color:#ffffff;}
     h2 {margin:0; padding:25px 0;}
     h2 span { color: #ffffff; cursor: pointer;}
-    .location_nav {line-height:36px; text-align:left; width: 740px; margin-left: 80px; height:0; transition:height 0.5s; overflow: hidden;
+    .location_nav {line-height:36px; text-align:left; width: 740px; margin-left: 60px; height:0; transition:height 0.5s; overflow: hidden;
       img {margin-right:15px;}
     }
-    .location_nav.open {height:215px; -webkit-column-count: 4; -moz-column-count: 4; column-count: 4;}
+    .location_nav.open {height:215px; -webkit-column-count: 3; -moz-column-count: 3; column-count: 3;}
   }
 }
 nav:before { content: ''; display: inline-block; height: 100%; vertical-align: middle;  margin-right: -0.25em;}
@@ -73,8 +73,7 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
 .nav-hide {display: none;}
 
 .navbar-hamburger { position: fixed; top: 20px; right: 20px; width: 30px; height: 22px; z-index: 20; cursor: pointer;
-  .bar1, .bar2, .bar3 { width: 100%; height: 3px; margin-bottom: 6px; background-color: #ffffff; transition: all 0.3s ease-in-out;box-shadow: rgba(0,0,0,0.4) 1px 1px 2px;
-}
+  .bar1, .bar2, .bar3 { width: 100%; height: 3px; margin-bottom: 6px; background-color: #ffffff; transition: all 0.3s ease-in-out; box-shadow:rgba(0,0,0,0.40) 1px 1px 2px}
   span {color:#ffffff; margin-left:-1px; font-size:11px;}
 }
 
@@ -103,7 +102,7 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
   .banner-overlay::after {left: auto; right: -100%;}
   .logo,.banner-text {@include vertical-align();
     h2 {@include slider_font(); font-size:48px; margin:0; letter-spacing:5px;}
-    h1 {@include slider_font(); font-size:88px; margin:0; letter-spacing:13px; line-height:normal;
+    h1 {@include slider_font(); font-size:100px; margin:0; letter-spacing:13px; line-height:normal;
       span {@include slider_font(); font-size:48px; margin:20px; letter-spacing:5px; display:block; line-height:0;}
     }
     h3 {@include header_font(300); font-size:14px; color:#ffffff; letter-spacing:0;}
@@ -114,7 +113,7 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
 .ms-skin-default .ms-nav-prev {left:40px!important;}
 .ms-skin-default .ms-nav-next {right:40px!important}
 
-.breadcrumb { padding: 0; margin-bottom: 0; list-style: none; border-radius: 0; font-size: 11px; text-transform: uppercase; position: absolute; width: 100%; margin-top: 35px; background:transparent;color: #404040;
+.breadcrumb {z-index: 14!important; padding: 0; margin-bottom: -60px; list-style: none; border-radius: 0; font-size: 11px; text-transform: uppercase; position: absolute; width: 100%; margin-top: 32px; background:transparent;color: #404040;
     a {color: #404040;}
 }
 
@@ -145,7 +144,7 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
       .slide {font-size:12px; letter-spacing:1px; text-transform: uppercase; 
         a {
           img {border-radius:50%;}
-          .name {margin-top:10px; line-height:18px;}
+          .name {margin-top:10px;}
         }
       }
     }
@@ -161,10 +160,9 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
 
 #contact {background:#f4f4f4;}
 
-#people {background: #fafafa url("/assets/bg-people.jpg") bottom center no-repeat; padding:100px 0 70px 0 !important;
+#people {background: #4799ef url("/assets/bg-people.jpg") bottom center no-repeat; padding:100px 0 70px 0 !important;
   .content-container .content {transform:none;
-    h2 {font-size:15px; line-height:24px; color:#000000;}
-    p {color:#999999;}
+    h2 {font-size:15px; line-height:24px;}
   }
 }
 
@@ -185,7 +183,7 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
 
 #footer {background: url("/assets/bg-footer.jpg") top center no-repeat; height:450px;
   .content-container {height: 450px;}
-  span {display:block; line-height:12px;}
+  span {display:block; line-height:18px;}
 }
 
 .content-container .content {@include vertical-align(); color:#ffffff;
@@ -307,18 +305,26 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
   }
 }
 
-.content img.bottom-logo {margin:40px auto;}
+.content img.bottom-logo {margin:40px auto; margin:30px;}
+
+table.countdown {margin:120px auto 0 auto!important; border:0; width:auto;
+  td {border:5px solid transparent; color: #ffffff; font-size:11px; text-transform:uppercase; width:25%; font-weight:bold;}
+  td.county-days, td.county-hours, td.county-minutes, td.county-seconds {font-size:24px; background:#000000; color:#ffffff; line-height:50px; opacity:1!important; font-weight:normal;}
+  h1 {margin:0 0 10px 0; color: #ffffff; }
+}
+#count-down {width: 300px !important; position: absolute; left: 50%; margin-left: -150px!important;}
+
 
 /*** xs ***/
-
 @media (max-width:767px) {
-  .breadcrumb {margin-top: 10px;}
-  .social_links {right: 10px;}
+  .container { width:85%; }
   #masterslider .banner-text h2 {font-size:17px!important; letter-spacing:3px!important;}
   #masterslider .banner-text h1 {font-size:28px!important; letter-spacing:5px!important; line-height:29px!important;}
+  .breadcrumb {margin-top: 0; margin-bottom: -30px; padding-top: 30px;}
+  .social_links {right: 10px;}
   h1.accommodation-name {font-size:24px; bottom:30px;}
   table {width: 100%;}
-  .logo {position: absolute!important; width: 220px; left: 50%; margin-left: -110px; top:50%; margin-top:-200px; }
+  .logo {position: absolute!important; width: 220px; left: 50%; margin-left: -110px; top:50%; margin-top:-36px; }
   .navbar-hamburger {top:10px; right:10px;}
   nav ul {margin-top:50px;}
   nav ul h2 {margin:0!important; padding:5px 0;}
@@ -329,6 +335,8 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
   nav ul .location_nav img {display:none;}
   nav ul .location_nav.open {height:auto;column-count:1;}  
   nav ul .location_nav.open li a span { font-size: 11px;}
+  nav {overflow: auto;}
+  #sb-search {display: none;}
   .banner {position:relative;}
   .banner .banner-text {position: absolute; top:50%; margin-top:-40px; width:100%;}
   .banner .banner-text h2 {@include slider_font(); margin:0!important;}
@@ -340,9 +348,10 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
   h1,h2,p,ul {width:100%!important;}
   #welcome, #locations, #contact, #people, #countries, #locations-blog-container, #welcome-locations, #welcome-accomodation,.accommodation {padding:0!important;}
   .content-container .content h1, .content-container .content h2 {margin:30px 0;}
+  #people { background: #fafafa;}
   #people .street-child,form { width:100%!important; padding:0!important;}
   #people .street-child img {float:none!important; margin:0 auto 30px auto!important;}
-  #countries {background: url("/assets/bg-countries-mobile.jpg") bottom center no-repeat!important;}
+  #countries {background: #000000;}
   #countries .content-container{ height: auto;}
   #countries .content-container .content {transform: none;}
   #countries ul li span {width:56px;}
@@ -355,7 +364,7 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
   .accommodations .bx-wrapper, .locations .bx-wrapper {max-width:165px!important;}
   #welcome-locations .bx-viewport, #welcome-accommodation .bx-viewport {height:138px!important;}
   #locations-blog-container .blog-post , .blog_post .blog_post_pod {width:auto!important;}
-  #locations-blog-container .banner-arrow, .blog_post .banner-arrow {top:248px!important;}
+  #locations-blog-container .banner-arrow, .blog_post .banner-arrow {display:none;}
   .blog_list {padding:0;}  
   .blog_locations {margin-top:30px;}
   #welcome-locations h2, #welcome-accommodation h2,.accommodation h2 {margin:30px 0;}
@@ -375,7 +384,9 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
   .accommodation_item .accommodation .accommodation-container .btn-custom {margin:40px 0 50px 0;}
   #welcome form .btn-custom {margin-bottom:30px!important;}
   .rates {width:auto;}
-  .content img.bottom-logo {position:relative; margin:0 auto}
+  .content img.bottom-logo {position:relative;}
+  .ms-skin-default .ms-nav-next, .ms-skin-default .ms-nav-prev {display:none;}
+  .social_links {right:0; position:static;}
 }
 
 /*** sm ***/
@@ -393,6 +404,8 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
   .modal-dialog {width: 700px!important;}
   .modal-dialog .modal-content .modal-body {padding:0 40px 50px 40px!important;}
   .modal-dialog .modal-content .modal-body h1 {margin: 30px 0 50px 0;}
+  nav {overflow: auto; }
+  #sb-search {display: none;}
 }
 
 /*** md ***/

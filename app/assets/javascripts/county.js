@@ -1,12 +1,12 @@
 ﻿(function ($) {
     $.fn.county = function (options) {
-        var settings = $.extend({ endDateTime: new Date(), animation: 'fade', reflection: true, reflectionOpacity: 0.2, speed: 500, theme: 'black' }, options);
+        var settings = $.extend({ endDateTime: new Date(), animation: 'fade', reflection: true, reflectionOpacity: 1, speed: 500, theme: 'black' }, options);
 
         return this.each(function () {
             var timeoutInterval = null;
             var container = $(this);
             container.addClass('county ' + settings.theme);
-            container.append('<span class="county-days-wrapper first"><span class="county-days">000</span><span class="county_dots" id="first_dots">:</span></span><span class="county-hours-wrapper separator-left border-separator-right"><span class="county-hours">00</span><span class="county_dots" id="second_dots">:</span></span><span class="county-minutes-wrapper separator-left separator-left"><span class="county-minutes">00</span></span><span class="county-seconds-wrapper separator-left last"><span class="county-seconds">00</span></span><div class="clear"></div><span class="county-label-days">Days</span><span class="county-label-hours">Hours</span><span class="county-label-minutes">Minutes</span><span class="county-label-seconds">Seconds</span>');
+            // container.append('<span class="county-days-wrapper first"><span class="county-days">000</span><span class="county_dots" id="first_dots">:</span></span><span class="county-hours-wrapper separator-left border-separator-right"><span class="county-hours">00</span><span class="county_dots" id="second_dots">:</span></span><span class="county-minutes-wrapper separator-left separator-left"><span class="county-minutes">00</span></span><span class="county-seconds-wrapper separator-left last"><span class="county-seconds">00</span></span><div class="clear"></div><span class="county-label-days">Days</span><span class="county-label-hours">Hours</span><span class="county-label-minutes">Minutes</span><span class="county-label-seconds">Seconds</span>');
             if (container.attr('id') == undefined || container.attr('id') == null) {
                 container.attr('id', Math.random());
             }

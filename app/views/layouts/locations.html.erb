@@ -181,7 +181,7 @@
                     <h1>Recent <%= @location.name %> Posts</h1>
                   </div>
                   <% blogs.each_with_index do |blog, index| %>
-                    <div class="col-xs-6 col-sm-6 col-md-4">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
                       <div class="blog-post">
                       <%= link_to refinery.blog_post_path(blog)  do %>
                         <%= image_fu blog.image, "360x280#c", :class=>"img-responsive" if blog.image.present? %>
@@ -220,7 +220,11 @@
         <div class="row">
           <div class="col-xs-12 div1">
             <% if @location.countdown_timer.present? and @location.countdown_timer.strftime("%Y-%m-%d %H:%M:%S") > DateTime.now.strftime("%Y-%m-%d %H:%M:%S") %>
-              <div id="count-down"></div>
+              <table class="countdown" id="count-down">
+              <tr><td colspan="4"><h1>Countdown</h1></td></tr>
+              <tr><td>Days</td><td>Hours</td><td>Minutes</td><td>Seconds</td></tr>
+              <tr><td class="county-days"></td><td class="county-hours"></td><td class="county-minutes"></td><td class="county-seconds"></td></tr>
+              <tr><td colspan="4">
               <script type="text/javascript">
                 function initialize() {
                   $('#count-down').county({
@@ -231,7 +235,8 @@
                   });
                 }
                 window.onload = function() { initialize(); };
-              </script>
+              </script></td></tr>
+              </table>
             <% end %>
 
             <%=raw @location.description %>

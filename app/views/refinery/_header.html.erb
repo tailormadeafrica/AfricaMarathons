@@ -1,5 +1,5 @@
 <div class="telephone-number hidden-xs">
-  <h2><i class="fa fa-phone fa-3x"></i> + 44 7791 360170</h2>
+  <h2><i class="fa fa-phone fa-3x"></i> + 44 7809 726266</h2>
 </div>
 <div class="navbar-hamburger">
   <div class="bar1"></div>
@@ -11,7 +11,7 @@
 <% face = copywriting('Facebook', {:phrase_type => 'string', :scope => 'Social', :default => '#' }) %>
 <% twit = copywriting('Twitter', {:phrase_type => 'string', :scope => 'Social', :default => '#' }) %>
 <% ins = copywriting('Instagram', {:phrase_type => 'string', :scope => 'Social', :default => '#' }) %>
-<div class="social_links">
+<div class="social_links hidden-xs">
   <div><a href="<%= face %>" target="_blank"><img src="/assets/facebook.png"></a></div>
   <div><a href="<%= twit %>" target="_blank"><img src="/assets/twitter.png"></a></div>
   <div><a href="<%= ins %>" target="_blank"><img src="/assets/instagram.png"></a></div>
@@ -31,10 +31,12 @@
   <% face = copywriting('Facebook', {:phrase_type => 'string', :scope => 'Social', :default => '#' }) %>
 <% twit = copywriting('Twitter', {:phrase_type => 'string', :scope => 'Social', :default => '#' }) %>
 <% ins = copywriting('Instagram', {:phrase_type => 'string', :scope => 'Social', :default => '#' }) %>
-<div class="social_links">
-  <div><a href="<%= face %>" target="_blank"><img src="/assets/facebook.png"></a></div>
-  <div><a href="<%= twit %>" target="_blank"><img src="/assets/twitter.png"></a></div>
-  <div><a href="<%= ins %>" target="_blank"><img src="/assets/instagram.png"></a></div>
+<div class="social_links visible-xs">
+  <ul class="list-inline">
+    <li><a href="<%= face %>" target="_blank"><img src="/assets/facebook.png"></a></li>
+    <li><a href="<%= twit %>" target="_blank"><img src="/assets/twitter.png"></a></li>
+    <li><a href="<%= ins %>" target="_blank"><img src="/assets/instagram.png"></a></li>
+  </ul>
 </div>
   </ul>
 </nav>
