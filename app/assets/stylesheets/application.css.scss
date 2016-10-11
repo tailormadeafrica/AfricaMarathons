@@ -308,11 +308,11 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
 .content img.bottom-logo {margin:40px auto; margin:30px;}
 
 table.countdown {margin:-340px auto 0 auto!important; border:0; width:auto;
-  td {border:5px solid transparent; color: #ffffff; font-size:11px; text-transform:uppercase; width:25%; font-weight:bold;}
+  td {border:5px solid transparent; color: #000000; font-size:11px; text-transform:uppercase; width:25%; font-weight:bold;}
   td.county-days, td.county-hours, td.county-minutes, td.county-seconds {font-size:24px; background:#000000; color:#ffffff; line-height:50px; opacity:1!important; font-weight:normal;}
-  h1 {margin:0 0 10px 0; color: #ffffff; }
+  h1 {margin:15px 0 5px 0;}
 }
-#count-down {width: 300px !important; position: absolute; left: 50%; margin-left: -150px!important;}
+#count-down {width: 300px !important; position: absolute; left: 50%; margin-left: -150px!important; background: rgba(255,255,255,0.7);}
 
 
 /*** xs ***/
