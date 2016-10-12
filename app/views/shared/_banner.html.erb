@@ -15,7 +15,29 @@
         <img src="/assets/blank.gif" data-src="/assets/downarrow.png" class="ms-layer arrow hidden-xs" data-resize="false" data-type="image" data-delay="1500" data-duration="9000" data-ease="easeOutExpo" data-resize="false">
       </div>
     <% end %>
-  </div>
+
+    <% if @location.countdown_timer.present? and @location.countdown_timer.strftime("%Y-%m-%d %H:%M:%S") > DateTime.now.strftime("%Y-%m-%d %H:%M:%S") %>
+    <table class="countdown" id="count-down">
+    <tr><td colspan="4"><h1>Countdown</h1></td></tr>
+    <tr><td>Days</td><td>Hours</td><td>Minutes</td><td>Seconds</td></tr>
+    <tr><td class="county-days"></td><td class="county-hours"></td><td class="county-minutes"></td><td class="county-seconds"></td></tr>
+    <tr><td colspan="4">
+    <script type="text/javascript">
+      function initialize() {
+        $('#count-down').county({
+          endDateTime: new Date('<%= @location.countdown_timer.strftime("%Y/%m/%d %k:%M:00").to_s %>'),
+          animation: 'fade',
+          reflection: false,
+          theme: 'black'
+        });
+      }
+      window.onload = function() { initialize(); };
+    </script></td></tr>
+    </table>
+  <% end %>
+    
+</div>
+
 <% elsif @accommodation.present? and @accommodation.gallery.present? and @accommodation.gallery.items.present? %>
   <div class="master-slider ms-skin-default" id="masterslider">
     <% @accommodation.gallery.items.reorder('position ASC').each do |item| %>

@@ -123,6 +123,7 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
   form {width:740px; margin:0 auto;
     input {border-radius:0; box-shadow:none; margin-bottom:5px; height:43px; color:#999999; border:none;}
     textarea {border-radius:0; box-shadow:none; margin-bottom:5px; padding:10px 12px; border:none;}
+    .captcha {background: url(/assets/captcha.png) top center no-repeat; height:44px;}
     .btn-custom {background: #000; border-radius: 0; border: 0; height: 44px; width:200px; color: #fff; margin-top:30px;}
     ::-webkit-input-placeholder {font-weight: 400; color: #999999; font-size: 14px;}
     :-moz-placeholder {font-weight: 400; color: #999999; font-size: 14px;}
@@ -308,13 +309,12 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
 
 .content img.bottom-logo {margin:30px auto;}
 
-table.countdown {margin:-340px auto 0 auto!important; border:0; width:auto; border-radius:0;
+table.countdown {margin:0 auto!important; border:0; width:auto; border-radius:0;
   td {border:5px solid transparent; color: #000000; font-size:11px; text-transform:uppercase; width:25%; font-weight:bold;}
   td.county-days, td.county-hours, td.county-minutes, td.county-seconds {font-size:24px; background:#000000; color:#ffffff; line-height:50px; opacity:1!important; font-weight:normal;}
   h1 {margin:15px 0 5px 0;}
 }
-#count-down {width: 300px !important; position: absolute; left: 50%; margin-left: -150px!important; background: rgba(255,255,255,0.7);}
-
+#count-down {width: 300px !important; position: absolute; left: 50%; margin-left: -150px!important; background: rgba(255,255,255,0.7); bottom:10%; z-index:9999;}
 
 /*** xs ***/
 @media (max-width:767px) {
@@ -388,6 +388,7 @@ table.countdown {margin:-340px auto 0 auto!important; border:0; width:auto; bord
   .content img.bottom-logo {position:relative;}
   .ms-skin-default .ms-nav-next, .ms-skin-default .ms-nav-prev {display:none;}
   .social_links {right:0; position:static;}
+  #count-down {bottom:5%;}
 }
 
 /*** sm ***/

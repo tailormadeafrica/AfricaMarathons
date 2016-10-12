@@ -95,6 +95,7 @@
               <% end %>
 
                 <%=raw @location.description %>
+                <p><%=raw @location.side_body %></p>
             </div>
           </div>
           <% child_locations = Refinery::Locations::Location.where(:parent_id => @location.id) %>
@@ -102,8 +103,7 @@
           <div class="locations">
             <div class="row">
               <div class="col-xs-12">
-                <h2>Truly Special Locations</h2>
-                <p><%=raw @location.side_body %></p>
+                <h2>Truly Special Locations</h2>                
                 <div id="locations_slider">
                   <% child_locations.each do |child| %>
                     <div class="slide">
@@ -218,28 +218,9 @@
       <div id="welcome">
       <div class="container">
         <div class="row">
-          <div class="col-xs-12 div1">
-            <% if @location.countdown_timer.present? and @location.countdown_timer.strftime("%Y-%m-%d %H:%M:%S") > DateTime.now.strftime("%Y-%m-%d %H:%M:%S") %>
-              <table class="countdown" id="count-down">
-              <tr><td colspan="4"><h1>Countdown</h1></td></tr>
-              <tr><td>Days</td><td>Hours</td><td>Minutes</td><td>Seconds</td></tr>
-              <tr><td class="county-days"></td><td class="county-hours"></td><td class="county-minutes"></td><td class="county-seconds"></td></tr>
-              <tr><td colspan="4">
-              <script type="text/javascript">
-                function initialize() {
-                  $('#count-down').county({
-                    endDateTime: new Date('<%= @location.countdown_timer.strftime("%Y/%m/%d %k:%M:00").to_s %>'),
-                    animation: 'fade',
-                    reflection: false,
-                    theme: 'black'
-                  });
-                }
-                window.onload = function() { initialize(); };
-              </script></td></tr>
-              </table>
-            <% end %>
-
+          <div class="col-xs-12 div1">           
             <%=raw @location.description %>
+            <p><%=raw @location.side_body %></p>
           </div>
           <div class="col-xs-12">
             <a type="button" class="btn btn-default btn-custom" data-toggle="modal" data-target="#myModal">Start Your Journey</a>
