@@ -388,7 +388,8 @@ table.countdown {margin:0 auto!important; border:0; width:auto; border-radius:0;
   .content img.bottom-logo {position:relative;}
   .ms-skin-default .ms-nav-next, .ms-skin-default .ms-nav-prev {display:none;}
   .social_links {right:0; position:static;}
-  #count-down {bottom:5%;}
+  #count-down {bottom:-30px;}
+  table.countdown td.county-days, table.countdown td.county-hours, table.countdown td.county-minutes, table.countdown td.county-seconds {line-height:30px;}
 }
 
 /*** sm ***/
