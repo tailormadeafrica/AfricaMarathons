@@ -18,7 +18,7 @@
 
     <% if @location.countdown_timer.present? and @location.countdown_timer.strftime("%Y-%m-%d %H:%M:%S") > DateTime.now.strftime("%Y-%m-%d %H:%M:%S") %>
     <table class="countdown" id="count-down">
-    <tr><td colspan="4"><h1>Countdown</h1></td></tr>
+    <tr class="hidden-xs"><td colspan="4"><h1>Countdown</h1></td></tr>
     <tr><td>Days</td><td>Hours</td><td>Minutes</td><td>Seconds</td></tr>
     <tr><td class="county-days"></td><td class="county-hours"></td><td class="county-minutes"></td><td class="county-seconds"></td></tr>
     <tr><td colspan="4">
@@ -35,7 +35,7 @@
     </script></td></tr>
     </table>
   <% end %>
-    
+
 </div>
 
 <% elsif @accommodation.present? and @accommodation.gallery.present? and @accommodation.gallery.items.present? %>
