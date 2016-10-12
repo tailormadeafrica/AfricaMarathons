@@ -253,7 +253,7 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
 
 .blog_list {background:#F4F4F4; padding:20px 0 70px 0;
   .blog_post {
-    .blog_post_pod {width:360px; position:relative; margin-bottom:30px;
+    .blog_post_pod {width:350px!important; position:relative; margin:0 auto 30px auto;
       h2 {margin:0; font-size:14px; line-height:20px;}
       .content {background:#ffffff; padding:20px;
         .date {font-size: 12px; font-style: italic;}
