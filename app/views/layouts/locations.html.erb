@@ -79,21 +79,6 @@
         <div class="container">
           <div class="row">
             <div class="col-xs-12 div1">
-              <% if @location.countdown_timer.present? and @location.countdown_timer.strftime("%Y-%m-%d %H:%M:%S") > DateTime.now.strftime("%Y-%m-%d %H:%M:%S") %>
-                <div id="count-down"></div>
-                <script type="text/javascript">
-                  function initialize() {
-                    $('#count-down').county({
-                      endDateTime: new Date('<%= @location.countdown_timer.strftime("%Y/%m/%d %k:%M:00").to_s %>'),
-                      animation: 'fade',
-                      reflection: false,
-                      theme: 'black'
-                    });
-                  }
-                  window.onload = function() { initialize(); };
-                </script>
-              <% end %>
-
                 <%=raw @location.description %>
                 <p><%=raw @location.side_body %></p>
             </div>
