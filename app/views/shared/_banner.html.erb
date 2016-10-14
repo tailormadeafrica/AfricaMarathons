@@ -108,7 +108,12 @@
             <img src="/assets/blank.gif" data-src="/assets/logo.png" class="ms-layer logo" data-type="image" data-delay="750" data-duration="2000" data-ease="easeOutExpo" data-resize="false">
           <% elsif banner.description.present? %>
             <div class="ms-layer banner-text" data-type="text" data-delay="750" data-duration="2000" data-ease="easeOutExpo" data-resize="false">
+              <h1><%= raw banner.name %></h1>
               <%= raw banner.description %>
+            </div>
+          <% else %>
+            <div class="ms-layer banner-text" data-type="text" data-delay="750" data-duration="2000" data-ease="easeOutExpo" data-resize="false">
+              <h1><%= raw banner.name %></h1>
             </div>
           <% end %>
           <img src="/assets/blank.gif" data-src="/assets/downarrow.png" class="ms-layer arrow hidden-xs" data-resize="false" data-type="image" data-delay="1500" data-duration="9000" data-ease="easeOutExpo" data-resize="false">
