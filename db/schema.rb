@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20161005071931) do
+ActiveRecord::Schema.define(:version => 20161110121227) do
 
   create_table "flights", :force => true do |t|
     t.string   "airline_and_flight_no"
@@ -282,6 +282,7 @@ ActiveRecord::Schema.define(:version => 20161005071931) do
     t.string   "image_ext"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "alt_tag"
   end
 
   create_table "refinery_inquiries_inquiries", :force => true do |t|

@@ -4,7 +4,7 @@
     <a href="#welcome"><div class="banner-overlay hidden-xs"><img class="img-responsive" src="/assets/banner-overlay-scroll.png"></div></a>
       <div class="ms-slide slide-1" data-delay="4">
         <div class="overlay"></div>        
-        <%= image_fu(item.image, "1920x935#c") %>
+        <%= image_fu(item.image, "1920x935#c", :alt => item.image.alt_tag) %>
         <div class="ms-layer banner-text" data-type="text" data-delay="750" data-duration="2000" data-ease="easeOutExpo" data-resize="false">
           <% if @location.depth == 0 %>
             <h2>Discover</h2>
@@ -44,7 +44,7 @@
     <a href="#welcome"><div class="banner-overlay hidden-xs"><img class="img-responsive" src="/assets/banner-overlay-scroll.png"></div></a>
       <div class="ms-slide slide-1" data-delay="4">
         <div class="overlay"></div>
-        <%= image_fu(item.image, "1920x935#c") %>
+        <%= image_fu(item.image, "1920x935#c", :alt => item.image.alt_tag) %>
         <div class="ms-layer banner-text" data-type="text" data-delay="750" data-duration="2000" data-ease="easeOutExpo" data-resize="false">
           <h2>Visit</h2>
           <h1><%= raw @accommodation.name %></h1>
@@ -60,7 +60,7 @@
       <div class="banner-overlay hidden-xs"><img class="img-responsive" src="/assets/banner-overlay.png"></div>
       <div class="ms-slide slide-1" data-delay="4">
         <div class="overlay"></div>
-        <%= image_fu(item.image, "1920x935#c") %>
+        <%= image_fu(item.image, "1920x935#c", :alt => item.image.alt_tag) %>
         <div class="ms-layer banner-text" data-type="text" data-delay="750" data-duration="2000" data-ease="easeOutExpo" data-resize="false">
           <h2>Experience</h2>
           <h1><%= raw @activity.name %></h1>
@@ -75,7 +75,7 @@
     <% @post.banners.published.reorder('position ASC').each do |banner| %>
       <div class="banner-overlay hidden-xs"><img class="img-responsive" src="/assets/banner-overlay.png"></div>
       <div class="ms-slide slide-1" data-delay="4">
-        <%= image_fu(banner.image, "1920x935#c") %>
+        <%= image_fu(banner.image, "1920x935#c", :alt => banner.image.alt_tag) %>
         <div class="ms-layer banner-text" data-type="text" data-delay="750" data-duration="2000" data-ease="easeOutExpo" data-resize="false">
           <h1><%= raw banner.name %></h1>
         </div>
@@ -87,7 +87,7 @@
     <% @page.banners.published.reorder('position ASC').each do |banner| %>
             <div class="banner-overlay hidden-xs"><img class="img-responsive" src="/assets/banner-overlay-cream.png"></div>
       <div class="ms-slide slide-1" data-delay="4">
-        <%= image_fu(banner.image, "1920x935#c") %>
+        <%= image_fu(banner.image, "1920x935#c", :alt => banner.image.alt_tag) %>
         <div class="ms-layer banner-text" data-type="text" data-delay="750" data-duration="2000" data-ease="easeOutExpo" data-resize="false">
           <h1><%= raw banner.name %></h1>
         </div>
@@ -99,7 +99,7 @@
     <% @page.banners.published.reorder('position ASC').each do |banner| %>
       <div class="banner-overlay hidden-xs"><img class="img-responsive" src="/assets/banner-overlay.png"></div>
       <div class="ms-slide slide-1" data-delay="4">
-        <%= image_fu(banner.image, "1920x935#c") %>
+        <%= image_fu(banner.image, "1920x935#c", :alt => banner.image.alt_tag) %>
         <div class="ms-layer banner-text" data-type="text" data-delay="750" data-duration="2000" data-ease="easeOutExpo" data-resize="false">
           <h1><%= raw banner.name %></h1>
         </div>
@@ -112,7 +112,7 @@
         <a href="#welcome"><div class="banner-overlay hidden-xs"><img class="img-responsive" src="/assets/banner-overlay-scroll.png"></div></a>
         <div class="ms-slide slide-1" data-delay="4">
           <div class="overlay"></div>
-          <%= image_fu(banner.image, "1920x935#c") %>
+          <%= image_fu(banner.image, "1920x935#c", :alt => banner.image.alt_tag) %>
           <% if home_page? %>
             <img src="/assets/blank.gif" data-src="/assets/logo.png" class="ms-layer logo" data-type="image" data-delay="750" data-duration="2000" data-ease="easeOutExpo" data-resize="false">
           <% elsif banner.description.present? %>

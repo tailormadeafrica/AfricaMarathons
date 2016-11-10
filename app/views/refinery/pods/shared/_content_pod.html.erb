@@ -1,7 +1,7 @@
 <% if home_page? %>
   <div class="col-xs-12 col-sm-6 col-md-3">
     <%= link_to pod.url, :class=>"home-pod" do %>
-      <%= image_fu pod.image, "262x242#c", :class=>"img-responsive" %>
+      <%= image_fu pod.image, "262x242#c", :alt => post.image.alt_tag, :class=>"img-responsive" %>
       <div class="home-pod-text">
         <h3><%= pod.name %></h3>
         <hr>

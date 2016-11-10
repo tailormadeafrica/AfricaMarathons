@@ -2,7 +2,7 @@
   <div id="teams">
     <% @teams.each do |team| %>
     	<div class="team-member">
-      	<%= image_fu(team.image,'290x290#c', :class => "img-responsive") %>
+      	<%= image_fu(team.image,'290x290#c', :alt => team.image.alt_tag, :class => "img-responsive") %>
         <h2><%=raw team.name %> - <%=raw team.title %></h2>
         <p><%=raw team.body %></p>
         </div>

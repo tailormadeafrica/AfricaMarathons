@@ -93,7 +93,7 @@
                   <% child_locations.each do |child| %>
                     <div class="slide">
                       <%= link_to refinery.locations_location_path(child)  do %>
-                        <%= image_fu child.cover_image, "165x165#c" if child.cover_image.present? %>
+                        <%= image_fu child.cover_image, "165x165#c", :alt => child.cover_image.alt_tag if child.cover_image.present? %>
                         <div class="name"><%= raw child.name %></div>
                       <% end %>
                     </div>
@@ -169,7 +169,7 @@
                     <div class="col-xs-12 col-sm-6 col-md-4">
                       <div class="blog-post">
                       <%= link_to refinery.blog_post_path(blog)  do %>
-                        <%= image_fu blog.image, "360x280#c", :class=>"img-responsive" if blog.image.present? %>
+                        <%= image_fu blog.image, "360x280#c", :alt => blog.image.alt_tag, :class=>"img-responsive" if blog.image.present? %>
                         <div class="banner-arrow"><img class="img-responsive" src="/assets/arrow.png"></div>
                         <div class="content">
                           <h2><%= link_to blog.title, refinery.blog_post_path(blog) %></h2>
@@ -267,7 +267,7 @@
                   <% accommodations.each do |accommodation| %>
                     <div class="slide">
                       <%= link_to refinery.accommodations_accommodation_path(accommodation), :remote => true do %>
-                        <%= image_fu accommodation.cover_image, "165x165#c" if accommodation.cover_image.present? %>
+                        <%= image_fu accommodation.cover_image, "165x165#c", :alt => accommodation.cover_image.alt_tag if accommodation.cover_image.present? %>
                         <div class="name"><%= raw accommodation.name %></div>
                       <% end %>
                     </div>

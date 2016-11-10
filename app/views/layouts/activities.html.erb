@@ -63,7 +63,7 @@
                   <% accommodations.each do |accommodation| %>
                     <div class="slide">
                       <%= link_to refinery.accommodations_accommodation_path(accommodation)  do %>                        
-                        <%= image_fu accommodation.cover_image, "300x175#c" if accommodation.cover_image.present? %> 
+                        <%= image_fu accommodation.cover_image, "300x175#c", :alt => accommodation.cover_image.alt_tag if accommodation.cover_image.present? %>
                         <%= accommodation.name %>
                       <% end %>
                     </div>
@@ -86,7 +86,7 @@
                 <% locations.each do |location| %>
                     <div class="slide">
                       <%= link_to refinery.locations_location_path(location)  do %>                        
-                        <%= image_fu location.cover_image, "300x175#c" if location.cover_image.present? %> 
+                        <%= image_fu location.cover_image, "300x175#c", :alt => location.cover_image.alt_tag if location.cover_image.present? %>
                         <%= location.name %>
                       <% end %>
                     </div>

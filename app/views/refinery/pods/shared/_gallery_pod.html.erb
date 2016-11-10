@@ -3,7 +3,7 @@
     <div class="carousel-inner">
       <% pod.portfolio_entry.items.each do |item| %>
         <div class="item <%= "active" if pod.portfolio_entry.items.first == item %>">
-          <%= link_to(image_fu(item.image, '340x226#c'), item.image.url, :class => "cboxElement img-responsive",:rel => 'group_' + "#{item.gallery.id}") %>
+          <%= link_to(image_fu(item.image, '340x226#c', :alt => item.image.alt_tag), item.image.url, :class => "cboxElement img-responsive",:rel => 'group_' + "#{item.gallery.id}") %>
         </div>
       <% end if pod.portfolio_entry.present? and pod.portfolio_entry.items.present? %>
     </div>

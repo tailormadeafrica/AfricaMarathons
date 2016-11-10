@@ -65,7 +65,7 @@
                   <% @menu_locations.each do |location| %>
                     <li>
                       <%= link_to refinery.locations_location_path(location) do %>
-                        <%= image_fu location.flag_image, '35x35#c', :class=>"img-circle" %><br>
+                        <%= image_fu location.flag_image, '35x35#c', :alt => location.flag_image.alt_tag, :class=>"img-circle" %><br>
                         <span><%= location.name %></span>
                       <% end %>
                     </li>

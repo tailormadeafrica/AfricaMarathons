@@ -40,7 +40,7 @@
                   <% activities.each do |activity| %>
                     <div class="slide">
                       <%= link_to refinery.activities_activity_path(activity)  do %>                        
-                        <%= image_fu activity.cover_image, "300x175#c" if activity.cover_image.present? %> 
+                        <%= image_fu activity.cover_image, "300x175#c", :alt => activity.cover_image.alt_tag if activity.cover_image.present? %>
                         <%= activity.name %>
                       <% end %>
                     </div>

@@ -5,7 +5,7 @@
       <div class="ms-slide slide-1" data-delay="2">
         <h1 class="accommodation-name"><%= raw @accommodation.name %></h1>
         <div class="overlay"></div>
-        <%= image_fu(banner.image, "1920x935#c") %>
+        <%= image_fu(banner.image, "1920x935#c", :alt => banner.image.alt_tag) %>
         <div class="ms-layer banner-text" data-type="text" data-delay="750" data-duration="2000" data-ease="easeOutExpo" data-resize="false">
         </div>
         
@@ -67,7 +67,7 @@
                 <% @accommodation.amenities.uniq.each do |amenity| %>
                   <% if amenity.image.present? %>
                     <li>
-                      <%= image_fu amenity.image, "60x60#c", :title => amenity.name, :class => "img-responsive", :data =>{:placement => "bottom", :toggle => "tooltip"}  %>
+                      <%= image_fu amenity.image, "60x60#c", :alt => amenity.name, :title => amenity.name, :class => "img-responsive", :data =>{:placement => "bottom", :toggle => "tooltip"}  %>
                     </li>
                   <% end %>
                 <% end %>
@@ -79,7 +79,7 @@
                   <% @accommodation.activities.uniq.each do |activity| %>
                     <% if activity.cover_image.present? %>
                       <li>
-                        <%= image_fu activity.cover_image, "60x60#c", :title => activity.name, :class => "img-responsive", :data =>{:placement => "bottom", :toggle => "tooltip"}  %>
+                        <%= image_fu activity.cover_image, "60x60#c", :alt => amenity.name, :title => activity.name, :class => "img-responsive", :data =>{:placement => "bottom", :toggle => "tooltip"}  %>
                       </li>
                     <% end %>
                   <% end %>

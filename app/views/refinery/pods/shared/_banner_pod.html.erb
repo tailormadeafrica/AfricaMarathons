@@ -1,9 +1,9 @@
 <% if pod.image.present? %>
   <div class="side-pod banner-pod">
     <% if pod.url.present? %>
-        <%= link_to (image_fu(pod.image, '360x', :class => "img-responsive")), pod.url %>
+        <%= link_to (image_fu(pod.image, '360x', :alt => post.image.alt_tag, :class => "img-responsive")), pod.url %>
     <% else %>
-        <%= image_fu pod.image, '360x', :class => "img-responsive" %>
+        <%= image_fu pod.image, '360x', :alt => post.image.alt_tag, :class => "img-responsive" %>
     <% end %>
     <div class="clear"></div>
   </div>
