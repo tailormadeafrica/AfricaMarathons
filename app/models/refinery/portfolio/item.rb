@@ -18,7 +18,7 @@ module Refinery
       class << self
 
         def per_page
-          ::Refinery::Portfolio.items_per_page
+          1000
         end
 
         def root_items
