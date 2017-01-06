@@ -7,9 +7,9 @@
   <%= site_bar -%>
   <%= render '/refinery/ie6check' if request.env['HTTP_USER_AGENT'] =~ /MSIE/ -%>
 
-  <div class="header-partial">
-    <%= render '/refinery/header' -%>
-  </div>
+
+  <%= render '/refinery/header' -%>
+
   <%= render '/shared/banner' %>
 
   <div id="welcome" class="hidden-xs">
