@@ -34,21 +34,4 @@
   <script type="text/javascript">stLight.options({publisher: "cef80a77-07e3-4913-804d-0d3aef60ac1f", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
-<script>
-
-function checkLandscape() {
-  if (($( window ).height() > $( document ).width()) && ($( document ).width() < 768)) {
-    $("#mobile-port").show();
-  } else {
-    $("#mobile-port").hide();
-  }
-}
-
-$( document ).ready(function() {
-  checkLandscape();
-  $( window ).resize(function() { checkLandscape(); });
-});
-
-</script>
-
 </head>

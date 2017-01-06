@@ -40,6 +40,8 @@ h1.accommodation-name {position: absolute; z-index: 6; width: 100%; @include sli
         span {@include slider_font(); font-size:48px; margin:20px; letter-spacing:5px; display:block; line-height:0;}
 }
 
+h2 span {display: block; margin-top: 15px; font-size: 14px; letter-spacing: 1px;}
+
 a,a:hover,a:focus {color:#000000; text-decoration:none;}
 
 p,ul,ol {width:740px; text-align:justify; margin:0 auto 30px auto;}
@@ -53,38 +55,46 @@ table {width: 740px; margin: 0 auto; border: 1px solid #eeeeee; margin-bottom: 3
   td {border-right: 1px solid #eeeeee;}
 }
 
-table.itinerary {
-  th {border-bottom:0;}
-  td {padding:0 20px;}
-  h3 {margin:15px 0; text-align:center;}
+table.itinerary {text-align:left; margin-bottom:50px;
+  th {border:0; border-right: 1px solid #eeeeee; padding:10px 20px; color:#000000; text-transform:uppercase;}
+  th.view {background:#f4f4f4;}
+  td {border:0; padding:10px 20px;}
+  .btn-custom {margin-bottom:0!important; background:transparent!important; color:#000000!important; border:1px solid #000000!important; width:250px!important;}
 }
 
-table.button {border:0;
-  td {border:0;}
-  .btn-custom {margin-bottom:0!important; background:transparent!important; color:#000000!important; border:1px solid #000000!important;}
+table.countdown {margin:0 auto!important; border:0; width:auto; border-radius:0;
+  td {border: 5px solid transparent;
+    color: #fff;
+    font-size: 8px;
+    text-transform: uppercase;
+    width: 25%;
+    font-weight: bold;}
+  td.county-days, td.county-hours, td.county-minutes, td.county-seconds {font-size:24px; background:#000000; color:#ffffff; line-height:10px; opacity:1!important; font-weight:normal;}
+  h1 {margin:12px 0; color:#ffffff; font-size:14px;}
 }
+#count-down {width: 300px !important; position: absolute; left: 50%; margin-left: -150px !important; background: rgba(0,0,0,1); bottom: 10%; z-index: 9;}
 
 nav, .navbar-hamburger {-webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;text-align: center;}
 
-nav {position: fixed; z-index: 15; background-color: rgba(0,0,0, 0.85); width: 100%; height: 100%;
-  ul {list-style:none; margin:0; padding:0; vertical-align: middle; display:inline-block; text-align:center; width:740px;
+nav {position:absolute; z-index: 15; background-color: rgba(0,0,0, 0.85); width: 100%; min-height: 100%; z-index: 9999;
+  ul {list-style:none; margin:0; padding:150px 0 0 0; vertical-align: middle; display:inline-block; text-align:center; width:740px;
     li.first {padding-top:25px;}
     li.parent {line-height:0;}
     a, a:hover, a:focus {color:#ffffff;}
     h2 {margin:0; padding:25px 0;}
     h2 span { color: #ffffff; cursor: pointer;}
-    .location_nav {line-height:36px; width: 740px; height:0; transition:height 0.5s; overflow: hidden;
+    .location_nav {line-height:36px; width: 740px; height:0; transition:height 0.5s; overflow: hidden; padding:30px 0 0 0;
       img {margin-right:15px;}
     }
-    .location_nav.open {height:215px; -webkit-column-count: 1; -moz-column-count: 1; column-count: 1;}
+    .location_nav.open {height:240px;}
   }
 }
 nav:before { content: ''; display: inline-block; height: 100%; vertical-align: middle;  margin-right: -0.25em;}
 
 .nav-hide {display: none;}
 
-.navbar-hamburger { position: fixed; top: 20px; right: 20px; width: 30px; height: 22px; z-index: 20; cursor: pointer;
-  .bar1, .bar2, .bar3 { width: 100%; height: 3px; margin-bottom: 6px; background-color: #ffffff; transition: all 0.3s ease-in-out; box-shadow:rgba(0,0,0,0.40) 1px 1px 2px}
+.navbar-hamburger { position: fixed; top: 0; right: 0; width: 70px; height: 70px; z-index: 20; cursor: pointer; background:rgba(0, 0, 0, 0.85); padding:10px 20px 20px 20px; z-index:99999;
+  .bar1, .bar2, .bar3 { width: 100%; height: 3px; margin-top: 6px; background-color: #ffffff; transition: all 0.3s ease-in-out;}
   span {color:#ffffff; margin-left:-1px; font-size:11px;}
 }
 
@@ -95,8 +105,11 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
   .bar2 { background-color: transparent; }
 }
 
-.telephone-number {
-  h2 {position:absolute; z-index:2; right:100px; color:#ffffff; margin:20px 0 0 0; line-height:22px;}
+.top-nav {position: fixed; z-index:20; right:100px; margin:12px 0 0 0; z-index:99999;
+  .btn-custom,.btn-custom:hover { background:rgba(0, 0, 0, 0.85); border-radius:0; border:0; color:#ffffff; margin-left:10px; font-size:11px; text-transform:uppercase; line-height:18px;
+    .fa {margin-right:10px;}
+  }
+
   .fa {font-size:18px;}
 }
 
@@ -203,7 +216,7 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
   h1,h2 {width:740px; color:#ffffff; margin:0 auto 50px auto;}
   h2 { margin-bottom:30px;}
   img.logo {display:block; margin:50px auto 80px auto;}
-  img.logos {display:block; margin:10px auto 0 auto;}
+  img.logos {display:block; margin:30px auto;}
   span, a {color:#ffffff; font-size:8px; font-size:8px; text-transform:uppercase;}
 }
 
@@ -265,7 +278,7 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
 
 .blog_list {background:#F4F4F4; padding:20px 0 70px 0;
   .blog_post {
-    .blog_post_pod {width:350px!important; position:relative; margin:0 auto 30px auto;
+    .blog_post_pod {width:350px; position:relative; margin:0 auto 30px auto;
       h2 {margin:0; font-size:14px; line-height:20px;}
       .content {background:#ffffff; padding:20px;
         .date {font-size: 12px; font-style: italic;}
@@ -318,19 +331,7 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
   }
 }
 
-.content img.bottom-logo {margin:30px auto;}
-
-table.countdown {margin:0 auto!important; border:0; width:auto; border-radius:0;
-  td {border: 5px solid transparent;
-    color: #fff;
-    font-size: 8px;
-    text-transform: uppercase;
-    width: 25%;
-    font-weight: bold;}
-  td.county-days, td.county-hours, td.county-minutes, td.county-seconds {font-size:24px; background:#000000; color:#ffffff; line-height:10px; opacity:1!important; font-weight:normal;}
-  h1 {margin:12px 0; color:#ffffff; font-size:14px;}
-}
-#count-down {width: 300px !important; position: absolute; left: 50%; margin-left: -150px !important; background: rgba(0,0,0,1); bottom: 10%; z-index: 9;}
+.content img.bottom-logo {margin:40px auto;}
 
 /*** xs ***/
 @media (max-width:767px) {

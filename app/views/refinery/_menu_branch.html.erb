@@ -9,7 +9,7 @@
     <h2><span  class="location_btn">Locations</span></h2>
     <% @menu_locations = Refinery::Locations::Location.order("position ASC").where('parent_id IS null') %>
     <% if @menu_locations.present? %>
-      <ul class="location_nav">
+      <ul class="location_nav open">
         <% @menu_locations.each do |location| %>
           <li>
             <%= link_to refinery.locations_location_path(location) do %>
