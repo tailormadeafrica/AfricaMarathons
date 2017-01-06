@@ -84,6 +84,14 @@ $(document).ready(function() {
         });
     });
 
+    $(".read_more").click(function() {
+
+        $(this).parent().parent().css("display", "none");
+        $(".more_text").slideDown(600,"easeInOutQuad");
+
+        return false;
+
+    });
 
     $('a[href*=#]:not([href=#])').click(function() {
         $('.navbar-on').click();
@@ -133,7 +141,7 @@ $(document).ready(function() {
     });
 
     $('.location_btn').click(function() {
-        $('.location_nav').toggleClass('open');
+        $('.location_nav').toggleClass(''open);
     });
 
     ///////////////////////////////////////////
