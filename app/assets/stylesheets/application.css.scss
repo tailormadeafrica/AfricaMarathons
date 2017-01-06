@@ -434,8 +434,7 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
   #locations .streetchild {width:auto;}
   #locations ul { -webkit-column-count: 1;}
   .accommodations .bx-wrapper, .locations .bx-wrapper {max-width:165px!important;}
-
-  #welcome-locations .bx-viewport, #welcome-accommodation .bx-viewport {height:138px!important;}
+  #welcome .locations .bx-viewport, #welcome .accommodations .bx-viewport, #contact .locations .bx-viewport, #contact .accommodations .bx-viewport, .modal .locations .bx-viewport, .modal .accommodations .bx-viewport {height:auto!important;}
   .bx-viewport .slide {margin-right:0!important;}
   .bx-viewport .slide a .name {margin:10px 0!important;}
   #locations_slider,#accommodations_slider {width:auto!important;}
