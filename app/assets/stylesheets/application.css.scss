@@ -40,7 +40,7 @@ h1.accommodation-name {position: absolute; z-index: 6; width: 100%; @include sli
         span {@include slider_font(); font-size:48px; margin:20px; letter-spacing:5px; display:block; line-height:0;}
 }
 
-h2 span {display: block; margin-top: 15px; font-size: 15px; letter-spacing: 1px;}
+h2 span {display: block; margin-top: 15px; letter-spacing: 1px;}
 
 a,a:hover,a:focus {color:#000000; text-decoration:none;}
 
