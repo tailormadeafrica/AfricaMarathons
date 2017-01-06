@@ -7,7 +7,7 @@ module Refinery
 
       alias_attribute :message, :address
 
-      attr_accessible :full_name, :email, :telephone, :cellphone, :address, :insurance_company, :policy_number, :emergency_number, :birthday_who_and_when, :anniversary_who_and_where, :emergency_contacts, :i_accept_name, :dont_get_newsletters, :certify_personal_insurance, :honeymoon, :birthday, :anniversary, :i_accept, :passports_attributes, :flights_attributes
+      attr_accessible :full_name, :human_answer, :email, :telephone, :cellphone, :address, :insurance_company, :policy_number, :emergency_number, :birthday_who_and_when, :anniversary_who_and_where, :emergency_contacts, :i_accept_name, :dont_get_newsletters, :certify_personal_insurance, :honeymoon, :birthday, :anniversary, :i_accept, :passports_attributes, :flights_attributes
 
 
       DIETS = ['None', 'Diabetic', 'Halaal', 'Hindu', 'Kosher', 'No Beef', 'No Lamb', 'No Pork', 'Vegan', 'Vegetarian', 'No Beef / No Pork']
@@ -17,6 +17,9 @@ module Refinery
 
       has_many :flights, :dependent => :destroy
       accepts_nested_attributes_for :flights, :reject_if => lambda { |item| item['airline_and_flight_no'].blank?}, :allow_destroy => true
+
+      attr_accessor :human_answer
+      validates :human_answer, :presence => true, inclusion: { in: %w(y4x3b Y4X3B y4x3B), :message => 'Invalid Captcha' }
 
       alias_attribute :name, :full_name
 
