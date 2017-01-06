@@ -463,6 +463,7 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
   .content img.bottom-logo {position:relative;}
   .ms-skin-default .ms-nav-next, .ms-skin-default .ms-nav-prev {display:none;}
   .social_links {right:0; position:static;}
+  .streetchild a {float: none!important; margin: 0 0 20px 0!important; display: block;}
   #count-down {bottom:40px;}
   table.countdown td.county-days, table.countdown td.county-hours, table.countdown td.county-minutes, table.countdown td.county-seconds {line-height:30px;}
 }
