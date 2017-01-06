@@ -141,7 +141,7 @@ $(document).ready(function() {
     });
 
     $('.location_btn').click(function() {
-        $('.location_nav').toggleClass(''open);
+        $('.location_nav').toggleClass('open');
     });
 
     ///////////////////////////////////////////
