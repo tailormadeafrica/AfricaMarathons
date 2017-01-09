@@ -101,8 +101,8 @@ nav:before { content: ''; display: inline-block; height: 100%; vertical-align: m
   .bar2 { background-color: transparent; }
 }
 
-.top-nav {position: fixed; z-index:20; right:100px; margin:12px 0 0 0; z-index:99999;
-  .btn-custom,.btn-custom:hover { background:rgba(0, 0, 0, 0.85); border-radius:0; border:0; color:#ffffff; margin-left:10px; font-size:11px; text-transform:uppercase; line-height:18px;
+.top-nav {position: fixed; z-index:20; right:75px; margin:0; z-index:99999;
+  .btn-custom,.btn-custom:hover { display:block; margin-bottom:6px; background:rgba(0, 0, 0, 0.85); border-radius:0; border:0; color:#ffffff; margin-left:10px; font-size:11px; text-transform:uppercase; line-height:18px;
     .fa {margin-right:10px;}
   }
   .fa {font-size:18px;}
