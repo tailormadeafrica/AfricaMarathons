@@ -52,7 +52,7 @@ $(document).ready(function() {
     width:1920,
     height:935,
     space:0,
-    layout:'fullscreen',
+    layout:'fullwidth',
     loop:true,
     preload:0,
     autoplay:false,
