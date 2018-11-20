@@ -15,7 +15,7 @@ development:
    database: african_marathon
    pool: 5
    username: postgres
-   password: iaanppdhu
+   password: postgres
 
 # development:
 #    adapter: postgresql
